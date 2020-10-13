@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Tubes_MakanApaHariIni</string>
+    <string name="text">Mau Makan Apa Hari Ini, Blyat?</string>
+    <string name="cari">CARI</string>
+    <string name="openDrawer"></string>
+    <string name="closeDrawer"></string>
+    <string name="right_drawer_text"></string>
+    <string name="left_drawer_text"></string>
+</resources>
