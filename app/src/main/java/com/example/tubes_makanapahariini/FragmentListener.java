@@ -7,5 +7,7 @@ public interface FragmentListener {
     //YOU CAN ADD MORE INTERFACES IF THERE ANY IMPORTANCEs
 
     //TESTERESERERasa
+
+    //apa gitu di-comment aja
 }
 
