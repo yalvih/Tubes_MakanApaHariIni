@@ -38,10 +38,9 @@ public class MainFragment extends Fragment implements ViewGroup.OnClickListener 
 
     @Override
     public void onClick(View v) {
-//        if(view == this.clickButton){
-//            String result = this.result.getText().toString();
-//            this.fragmentListener.showMessage("Your Input: " + result);
-//        }
+        if(v == this.cari){
+            this.fragmentListener.changePage(2);
+        }
     }
 
     @Override
