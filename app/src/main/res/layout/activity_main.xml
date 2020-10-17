@@ -64,7 +64,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="start" >
 
-        <!--CONTAINS BINARY XML BUG at line 42 thx-->
         <fragment
             android:id="@+id/leftFragment"
             android:layout_width="match_parent"
