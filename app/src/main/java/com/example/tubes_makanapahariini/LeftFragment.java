@@ -59,10 +59,13 @@ public class LeftFragment extends Fragment implements View.OnClickListener{
     }
 
     @Override
-    public void onClick(View v) {
-//        if(v == this.clickButton){
-//            String result = this.result.getText().toString();
-//            this.fragmentListener.showMessage("Your Input: " + result);
-//        }
+    public void onClick(View view) {
+        if(view == this.home){
+            fragmentListener.changePage(1);
+        } else if(view == this.settings){
+            fragmentListener.changePage(2);
+        } else if(view == this.close){
+            fragmentListener.closeApplication();
+        }
     }
 }

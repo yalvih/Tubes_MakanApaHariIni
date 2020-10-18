@@ -16,16 +16,13 @@ public class MainFragment extends Fragment implements ViewGroup.OnClickListener 
     Button cari;
     FragmentListener fragmentListener;
 
-    public MainFragment() {
-    }
+    public MainFragment() {}
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
-
         this.txt = view.findViewById(R.id.txt);//JUST TEXT
         this.cari = view.findViewById(R.id.cari);//DRAWER DAN YANG MAIN PAGE PUNYA ADDRESS YANG SAMA !
         this.cari.setOnClickListener(this);
-
         return view;
     }
 
@@ -38,9 +35,9 @@ public class MainFragment extends Fragment implements ViewGroup.OnClickListener 
 
     @Override
     public void onClick(View v) {
-        if(v == this.cari){
-            this.fragmentListener.changePage(2);
-        }
+//        if(v == this.cari){
+//            this.fragmentListener.changePage(2);
+//        }
     }
 
     @Override

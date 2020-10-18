@@ -5,38 +5,41 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-public class MainMenu extends Fragment implements ViewGroup.OnClickListener{
-    ListView listView;
+import com.example.tubes_makanapahariini.databinding.ActivityMainBinding;
+
+public class SettingsFragment extends Fragment implements ViewGroup.OnClickListener{
+
+    TextView labelDark;
+    Button btn_dark;
+    ActivityMainBinding bind;
     FragmentListener fragmentListener;
 
-    public MainMenu() {}
+    public SettingsFragment() { }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
-        this.listView = view.findViewById(R.id.list_foods);
+        this.labelDark = view.findViewById(R.id.txt);
+        this.btn_dark = view.findViewById(R.id.dark_btn);
         return view;
     }
 
-    public static MainMenu newInstance(){
-        MainMenu fragment = new MainMenu();
+    public static SettingsFragment newInstance(){
+        SettingsFragment fragment = new SettingsFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
     }
 
-    //LATER USED FOR BUTTON
-//    @Override
-//    public void onClick(View v) {
-////        if(v == this.cari){
-////            this.fragmentListener.changePage(2);
-////        }
-//    }
-
     @Override
+    public void onClick(View v) {
+
+    }
+
     public void onAttach(Context context){
         super.onAttach(context);
         if(context instanceof FragmentListener){
@@ -44,10 +47,5 @@ public class MainMenu extends Fragment implements ViewGroup.OnClickListener{
         } else{
             throw new ClassCastException(context.toString() + " must implement FragmentListener");
         }
-    }
-
-    @Override
-    public void onClick(View v) {
-
     }
 }
