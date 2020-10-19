@@ -17,7 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"
-            android:text="Home"
+            android:text="@string/home"
+            android:background="@drawable/ripple_effect"
             />
 
         <TextView
@@ -26,6 +27,7 @@
             android:layout_height="wrap_content"
             android:padding="20dp"
             android:text="@string/cariLeftDrawer"
+            android:background="@drawable/ripple_effect"
             />
 
         <TextView
@@ -34,6 +36,7 @@
             android:layout_height="wrap_content"
             android:padding="20dp"
             android:text="@string/menu"
+            android:background="@drawable/ripple_effect"
             />
 
         <TextView
@@ -42,6 +45,7 @@
             android:layout_height="wrap_content"
             android:padding="20dp"
             android:text="@string/settings"
+            android:background="@drawable/ripple_effect"
             />
 
 
@@ -51,6 +55,7 @@
             android:layout_height="wrap_content"
             android:padding="20dp"
             android:text="@string/exit"
+            android:background="@drawable/ripple_effect"
             />
     </LinearLayout>
 </FrameLayout>

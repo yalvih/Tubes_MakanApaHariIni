@@ -59,6 +59,8 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
         this.adapter.add("Menu B");
         this.adapter.add("Menu C");
          */
+
+        changePage(1);
     }
 
     @Override
