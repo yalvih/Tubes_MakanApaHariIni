@@ -1,4 +1,4 @@
-package com.example.tubes_makanapahariini;
+package com.example.tubes_makanapahariini.view;
 
 //Left drawer
 
@@ -9,9 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.example.tubes_makanapahariini.R;
+import com.example.tubes_makanapahariini.view.FragmentListener;
 
 public class LeftFragment extends Fragment implements View.OnClickListener {
     private FragmentListener fragmentListener;
@@ -62,6 +63,12 @@ public class LeftFragment extends Fragment implements View.OnClickListener {
         }
         else if (view == this.settings) {
             fragmentListener.changePage(2);
+        }
+        else if (view == this.menu) {
+            fragmentListener.changePage(3);
+        }
+        else if (view == this.settings) {
+            fragmentListener.changePage(4);
         }
         else if(view == this.close) {
             fragmentListener.closeApplication();

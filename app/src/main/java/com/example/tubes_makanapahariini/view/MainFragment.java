@@ -1,4 +1,4 @@
-package com.example.tubes_makanapahariini;
+package com.example.tubes_makanapahariini.view;
 
 //Main Page
 
@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.tubes_makanapahariini.R;
+
 public class MainFragment extends Fragment implements ViewGroup.OnClickListener {
     TextView caption;
     Button search;
@@ -24,9 +26,7 @@ public class MainFragment extends Fragment implements ViewGroup.OnClickListener 
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         this.caption = view.findViewById(R.id.main_text); //JUST TEXT
         this.search = view.findViewById(R.id.main_search); //DRAWER DAN YANG MAIN PAGE PUNYA ADDRESS YANG SAMA !
-
         this.search.setOnClickListener(this);
-
         return view;
     }
 

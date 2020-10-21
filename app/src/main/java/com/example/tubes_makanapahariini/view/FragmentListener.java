@@ -1,4 +1,4 @@
-package com.example.tubes_makanapahariini;
+package com.example.tubes_makanapahariini.view;
 
 public interface FragmentListener {
     void changePage(int page);

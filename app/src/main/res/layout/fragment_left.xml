@@ -19,7 +19,6 @@
             android:layout_height="wrap_content"
             android:padding="20dp"
             android:background="@drawable/ripple_effect"
-
             android:text="@string/left_drawer_home"
             />
 
@@ -29,7 +28,6 @@
             android:layout_height="wrap_content"
             android:padding="20dp"
             android:background="@drawable/ripple_effect"
-
             android:text="@string/left_drawer_search"
             />
 
@@ -39,7 +37,6 @@
             android:layout_height="wrap_content"
             android:padding="20dp"
             android:background="@drawable/ripple_effect"
-
             android:text="@string/left_drawer_menu"
             />
 
@@ -49,7 +46,6 @@
             android:layout_height="wrap_content"
             android:padding="20dp"
             android:background="@drawable/ripple_effect"
-
             android:text="@string/left_drawer_settings"
             />
 
@@ -60,7 +56,6 @@
             android:layout_height="wrap_content"
             android:padding="20dp"
             android:background="@drawable/ripple_effect"
-
             android:text="@string/left_drawer_exit"
             />
 

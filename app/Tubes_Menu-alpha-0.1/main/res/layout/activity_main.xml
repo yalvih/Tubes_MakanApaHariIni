@@ -43,7 +43,7 @@
 <!--            android:id="@+id/leftFragment"-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="match_parent"-->
-<!--            android:name="com.example.tubes_makanapahariini.LeftFragment"/>-->
+<!--            android:name="com.example.tubes_makanapahariini.view.LeftFragment"/>-->
 
     </RelativeLayout>
 

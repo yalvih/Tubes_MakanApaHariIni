@@ -1,10 +1,12 @@
-package com.example.tubes_makanapahariini;
+package com.example.tubes_makanapahariini.view;
 
 import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.example.tubes_makanapahariini.R;
 
 import java.util.ArrayList;
 import java.util.List;

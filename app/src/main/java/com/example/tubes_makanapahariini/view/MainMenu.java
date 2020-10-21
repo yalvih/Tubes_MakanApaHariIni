@@ -1,4 +1,4 @@
-package com.example.tubes_makanapahariini;
+package com.example.tubes_makanapahariini.view;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
+
+import com.example.tubes_makanapahariini.R;
 
 //Menu list page
 
@@ -25,7 +27,7 @@ public class MainMenu extends Fragment implements ViewGroup.OnClickListener{
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_main, container, false);
+        View view = inflater.inflate(R.layout.main_menu, container, false);
         this.listView = view.findViewById(R.id.list_foods);
         return view;
     }
@@ -44,10 +46,8 @@ public class MainMenu extends Fragment implements ViewGroup.OnClickListener{
     //LATER USED FOR BUTTON
     @Override
     public void onClick(View v) {
-        /*
-        if(v == this.search){
-            this.fragmentListener.changePage(2);
-        }
-         */
+//        if(v == this.search){
+//            this.fragmentListener.changePage(2);
+//        }
     }
 }

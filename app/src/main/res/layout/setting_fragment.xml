@@ -11,16 +11,13 @@
         android:id="@+id/settings_text_theme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="5dp"
-
-        android:hint="@string/settings_text_theme"
+        android:text="@string/settings_text_theme"
         />
 
     <Button
         android:id="@+id/settings_button_theme"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:text="@string/settings_button_theme"
         />
 

@@ -1,10 +1,9 @@
-package com.example.tubes_makanapahariini;
+package com.example.tubes_makanapahariini.view;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -13,6 +12,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.tubes_makanapahariini.R;
 import com.example.tubes_makanapahariini.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity implements FragmentListener {
@@ -79,7 +79,6 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
             ft.replace(R.id.fragment_container, this.settingsFragment).addToBackStack(null);
         }
         ft.commit();
-
         this.bind.drawerLayout.closeDrawers();
 
         //Not done yet

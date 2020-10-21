@@ -1,4 +1,6 @@
-package com.example.tubes_makanapahariini;
+package com.example.tubes_makanapahariini.presenter;
+
+import com.example.tubes_makanapahariini.model.Food;
 
 public class MockFood {
     public static String[] foodStringArr = {
@@ -22,13 +24,9 @@ public class MockFood {
             "Baso"
     };
 
-//    public static Food[] foodObjectArr= {
-//            new Food("Nasi Goreng","pake nasi"),
-//            new Food("Mie Goreng","pake mie"),
-//            new Food("Makanan 1","detail makanan 1"),
-//            new Food("Makanan 2","detail makanan 2"),
-//            new Food("Makanan 3","detail makanan 3"),
-//            new Food("Makanan 4","detail makanan 4"),
-//            new Food("Makanan 5","detail makanan 5")
-//    };
+    public static Food[] foodObjectArr= {
+            new Food("Nasi Goreng","pake nasi","nasi,kecap,garam,telur",1),
+            new Food("Mie Goreng","pake mie","mie,kecap,udang,sayur",2),
+            new Food("Indomie","pake nasi","mie indomie,telur,nasi putih",3),
+    };
 }
