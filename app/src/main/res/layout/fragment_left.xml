@@ -1,61 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
         <TextView
-            android:id="@+id/homeButton"
+            android:id="@+id/drawer_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"
-            android:text="@string/home"
             android:background="@drawable/ripple_effect"
+
+            android:text="@string/left_drawer_home"
             />
 
         <TextView
-            android:id="@+id/cari"
+            android:id="@+id/drawer_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"
-            android:text="@string/cariLeftDrawer"
             android:background="@drawable/ripple_effect"
+
+            android:text="@string/left_drawer_search"
             />
 
         <TextView
-            android:id="@+id/menu"
+            android:id="@+id/drawer_menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"
-            android:text="@string/menu"
             android:background="@drawable/ripple_effect"
+
+            android:text="@string/left_drawer_menu"
             />
 
         <TextView
-            android:id="@+id/setting"
+            android:id="@+id/drawer_setting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"
-            android:text="@string/settings"
             android:background="@drawable/ripple_effect"
+
+            android:text="@string/left_drawer_settings"
             />
 
 
         <TextView
-            android:id="@+id/close"
+            android:id="@+id/drawer_exit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"
-            android:text="@string/exit"
             android:background="@drawable/ripple_effect"
+
+            android:text="@string/left_drawer_exit"
             />
+
     </LinearLayout>
+
 </FrameLayout>

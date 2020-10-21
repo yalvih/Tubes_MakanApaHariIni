@@ -66,16 +66,20 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
     @Override
     public void changePage(int page) {
         FragmentTransaction ft = this.fragmentManager.beginTransaction();
-        if(page == 1){
+        if (page == 1) {
             ft.replace(R.id.fragment_container, this.mainFragment).addToBackStack(null);
-        } else if(page == 2){
+        }
+        else if (page == 2) {
             ft.replace(R.id.fragment_container, this.mainMenu).addToBackStack(null);
-        } else if(page == 3){
+        }
+        else if (page == 3) {
             ft.replace(R.id.fragment_container, this.mainMenu).addToBackStack(null);
-        } else if(page == 4){
+        }
+        else if (page == 4) {
             ft.replace(R.id.fragment_container, this.settingsFragment).addToBackStack(null);
         }
         ft.commit();
+
         this.bind.drawerLayout.closeDrawers();
 
         //Not done yet

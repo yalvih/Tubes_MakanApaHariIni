@@ -15,7 +15,7 @@ public class FoodListAdapter extends BaseAdapter {
 
     public FoodListAdapter(Activity activity) {
         this.activity = activity;
-        this.listItem = new ArrayList<String>();
+        this.listItem = new ArrayList<>();
     }
 
     public void add(String newItem) {
@@ -39,10 +39,10 @@ public class FoodListAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup){
+    public View getView(int i, View view, ViewGroup viewGroup) {
         View itemView = this.activity.getLayoutInflater().inflate(R.layout.food_list_strings, null);
-        TextView tvName = itemView.findViewById(R.id.food_item_string);
-        tvName.setText(this.listItem.get(i));
+        TextView menuName = itemView.findViewById(R.id.food_item_string);
+        menuName.setText(this.listItem.get(i));
         return itemView;
     }
 }

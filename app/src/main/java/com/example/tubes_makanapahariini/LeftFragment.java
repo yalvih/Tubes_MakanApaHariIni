@@ -1,12 +1,6 @@
 package com.example.tubes_makanapahariini;
 
-//THIS IS DRAWER
-//CONTAINS
-//
-//HOME
-//SEARCH
-//SETTING MENU
-//EXIT PROGRAM
+//Left drawer
 
 import android.content.Context;
 import android.os.Bundle;
@@ -19,13 +13,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class LeftFragment extends Fragment implements View.OnClickListener{
+public class LeftFragment extends Fragment implements View.OnClickListener {
+    private FragmentListener fragmentListener;
+    private TextView home;
+    private TextView search;
+    private TextView menu;
+    private TextView settings;
+    private TextView close;
 
-    FragmentListener fragmentListener;
-    TextView home, cari, menu, settings, close;
-
-    public LeftFragment() {
-    }
+    public LeftFragment() { }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -33,38 +29,41 @@ public class LeftFragment extends Fragment implements View.OnClickListener{
 
         //COBA KAMU CONVERT KE VIEW BINDING BUAT OPTIMASI TRIMS
 
-        this.home = view.findViewById(R.id.homeButton);
-        this.cari = view.findViewById(R.id.cari);
-        this.close = view.findViewById(R.id.close);
-        this.settings = view.findViewById(R.id.setting);
-        this.menu = view.findViewById(R.id.menu);
+        this.home = view.findViewById(R.id.drawer_home);
+        this.search = view.findViewById(R.id.drawer_search);
+        this.menu = view.findViewById(R.id.drawer_menu);
+        this.settings = view.findViewById(R.id.drawer_setting);
+        this.close = view.findViewById(R.id.drawer_exit);
 
         this.home.setOnClickListener(this);
-        this.cari.setOnClickListener(this);
-        this.close.setOnClickListener(this);
-        this.settings.setOnClickListener(this);
+        this.search.setOnClickListener(this);
         this.menu.setOnClickListener(this);
+        this.settings.setOnClickListener(this);
+        this.close.setOnClickListener(this);
 
         return view;
     }
 
     @Override
-    public void onAttach(Context context){
+    public void onAttach(Context context) {
         super.onAttach(context);
-        if(context instanceof FragmentListener){
+        if (context instanceof FragmentListener) {
             this.fragmentListener = (FragmentListener) context;
-        } else{
+        }
+        else {
             throw new ClassCastException(context.toString() + " must implement FragmentListener");
         }
     }
 
     @Override
     public void onClick(View view) {
-        if(view == this.home){
+        if (view == this.home) {
             fragmentListener.changePage(1);
-        } else if(view == this.settings){
+        }
+        else if (view == this.settings) {
             fragmentListener.changePage(2);
-        } else if(view == this.close){
+        }
+        else if(view == this.close) {
             fragmentListener.closeApplication();
         }
     }
