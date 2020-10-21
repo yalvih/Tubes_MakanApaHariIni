@@ -16,11 +16,7 @@ import com.example.tubes_makanapahariini.view.FragmentListener;
 
 public class LeftFragment extends Fragment implements View.OnClickListener {
     private FragmentListener fragmentListener;
-    private TextView home;
-    private TextView search;
-    private TextView menu;
-    private TextView settings;
-    private TextView close;
+    private TextView home, search, menu, settings, close;
 
     public LeftFragment() { }
 
@@ -61,7 +57,7 @@ public class LeftFragment extends Fragment implements View.OnClickListener {
         if (view == this.home) {
             fragmentListener.changePage(1);
         }
-        else if (view == this.settings) {
+        else if (view == this.search) {
             fragmentListener.changePage(2);
         }
         else if (view == this.menu) {

@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
     private ActivityMainBinding bind;
     private MainMenu mainMenu;
     private SettingsFragment settingsFragment;
+    private SearchFragment searchFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
         this.mainFragment = MainFragment.newInstance();
         this.mainMenu = MainMenu.newInstance();
         this.settingsFragment = SettingsFragment.newInstance();
+        this.searchFragment = SearchFragment.newInstance();
         this.fragmentManager = this.getSupportFragmentManager();
 
         ActionBarDrawerToggle abdt = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.open_drawer, R.string.close_drawer);
@@ -70,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
             ft.replace(R.id.fragment_container, this.mainFragment).addToBackStack(null);
         }
         else if (page == 2) {
-            ft.replace(R.id.fragment_container, this.mainMenu).addToBackStack(null);
+            ft.replace(R.id.fragment_container, this.searchFragment).addToBackStack(null);
         }
         else if (page == 3) {
             ft.replace(R.id.fragment_container, this.mainMenu).addToBackStack(null);
