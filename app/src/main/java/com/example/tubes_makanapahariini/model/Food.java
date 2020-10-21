@@ -5,13 +5,13 @@ import java.lang.reflect.Array;
 public class Food {
     public String title;
     public String description;
-    public String bahan;
+    public String ingredients;
     public int id;
 
-    public Food(String title, String description, String bahan, int id) {
+    public Food(String title, String description, String ingredients, int id) {
         this.title = title;
         this.description = description;
-        this.bahan = bahan;
+        this.ingredients = ingredients;
         this.id = id;
     }
 
@@ -31,12 +31,12 @@ public class Food {
         this.description = description;
     }
 
-    public String getBahan() {
-        return bahan;
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
     }
 
-    public void setBahan(String bahan) {
-        this.bahan = bahan;
+    public String getIngredients() {
+        return ingredients;
     }
 
     public int getId() {
