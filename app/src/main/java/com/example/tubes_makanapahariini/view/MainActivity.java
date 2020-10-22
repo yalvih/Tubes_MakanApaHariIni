@@ -7,7 +7,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 
@@ -15,7 +17,7 @@ import com.example.tubes_makanapahariini.R;
 import com.example.tubes_makanapahariini.databinding.ActivityMainBinding;
 import com.example.tubes_makanapahariini.presenter.MainActivityPresenter;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener,FragmentListener, AdapterView.OnItemClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, FragmentListener, AdapterView.OnItemClickListener {
     private Toolbar toolbar;
     private MainFragment mainFragment;
     private FragmentManager fragmentManager;
@@ -29,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTheme(R.style.AppThemeDark);
+        Utils.setThemeOnCreate(this);
         this.bind = ActivityMainBinding.inflate(getLayoutInflater());
         View view = this.bind.getRoot();
         setContentView(view);
@@ -50,9 +52,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         drawer.addDrawerListener(abdt);
         abdt.syncState();
 
-//        this.map = new MainActivityPresenter();
+        //this.map = new MainActivityPresenter();
 
         changePage(1);
+    }
+
+    @Override
+    public void changeTheme(int theme) {
+        if (theme == 0) {
+            Utils.changeToTheme(this, Utils.THEME_UNSET);
+        }
+        if (theme == 1) {
+            Utils.changeToTheme(this, Utils.THEME_LIGHT);
+        }
+        else if (theme == 2) {
+            Utils.changeToTheme(this, Utils.THEME_DARK);
+        }
+        else {
+            Log.d("Debug", "Theme Error!");
+            Utils.changeToTheme(this, Utils.THEME_LIGHT);
+        }
     }
 
     @Override

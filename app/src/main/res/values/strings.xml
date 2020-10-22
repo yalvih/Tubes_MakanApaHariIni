@@ -11,5 +11,5 @@
     <string name="left_drawer_exit">Exit</string>
     <string name="menu_title">Menu</string>
     <string name="settings_text_theme">Enable Dark Theme</string>
-    <string name="settings_button_theme">DARK THEME</string>
+    <string name="settings_button_theme">ENABLE</string>
 </resources>

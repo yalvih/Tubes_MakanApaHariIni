@@ -18,7 +18,7 @@
         android:id="@+id/settings_button_theme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/settings_button_theme"
+
         />
 
 </LinearLayout>
