@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.AppThemeDark);
         this.bind = ActivityMainBinding.inflate(getLayoutInflater());
         View view = this.bind.getRoot();
         setContentView(view);
