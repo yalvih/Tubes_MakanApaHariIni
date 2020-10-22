@@ -1,16 +1,16 @@
 package com.example.tubes_makanapahariini.view;
 
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ListView;
+import android.widget.TextView;
+
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import com.example.tubes_makanapahariini.R;
 import com.example.tubes_makanapahariini.databinding.ActivityMainBinding;
@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.AppThemeDark);
         this.bind = ActivityMainBinding.inflate(getLayoutInflater());
         View view = this.bind.getRoot();
         setContentView(view);

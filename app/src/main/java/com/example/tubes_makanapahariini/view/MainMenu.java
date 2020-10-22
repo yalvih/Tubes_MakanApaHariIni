@@ -13,7 +13,7 @@ import com.example.tubes_makanapahariini.R;
 
 //MENU LIST PAGE WITH EDIT BUTTON
 
-public class MainMenu extends Fragment implements ViewGroup.OnClickListener{
+public class MainMenu extends Fragment implements ViewGroup.OnClickListener {
     ListView listView;
     FragmentListener fragmentListener;
 

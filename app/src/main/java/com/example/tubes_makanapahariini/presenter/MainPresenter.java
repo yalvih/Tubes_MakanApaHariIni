@@ -1,4 +1,5 @@
 package com.example.tubes_makanapahariini.presenter;
+
 import com.example.tubes_makanapahariini.model.Food;
 
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ public class MainPresenter {
         this.ui = ui;
     }
 
-    interface IMainActivity{
+    interface IMainActivity {
         void UpdateList(List<Food> data);
     }
 
@@ -25,7 +26,7 @@ public class MainPresenter {
 //        this.ui.resetAddForm();
     }
 
-    public void loadData(){
+    public void loadData() {
         this.foods.addAll(Arrays.asList(MockFood.foodObjectArr));
         this.ui.UpdateList(this.foods);
     }

@@ -5,8 +5,22 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="fragmentBackground">@color/fragment_bg_light</item>
+        <item name="rippleEffectTheme">@drawable/ripple_effect_light</item>
+        <item name="rippleEffect">@color/ripple_color_light</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="AppThemeDark" parent="Theme.AppCompat">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="fragmentBackground">@color/fragment_bg_dark</item>
+        <item name="rippleEffectTheme">@drawable/ripple_effect_dark</item>
+        <item name="rippleEffect">@color/ripple_color_dark</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 </resources>
