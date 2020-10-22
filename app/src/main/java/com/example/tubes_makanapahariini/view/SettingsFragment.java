@@ -74,13 +74,11 @@ public class SettingsFragment extends Fragment implements ViewGroup.OnClickListe
             if (this.darkTheme == 2) {
                 this.spEditor.putInt("DARK_THEME", 1);
                 spEditor.apply();
-                this.btnDarkTheme.setText("ENABLE");
                 fragmentListener.changeTheme(1);
             }
             else {
                 this.spEditor.putInt("DARK_THEME", 2);
                 spEditor.apply();
-                this.btnDarkTheme.setText("ENABLE");
                 fragmentListener.changeTheme(2);
             }
         }

@@ -18,6 +18,8 @@ import com.example.tubes_makanapahariini.databinding.ActivityMainBinding;
 import com.example.tubes_makanapahariini.presenter.MainActivityPresenter;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, FragmentListener, AdapterView.OnItemClickListener {
+    SharedPreferences sp;
+    SharedPreferences.Editor spEditor;
     private Toolbar toolbar;
     private MainFragment mainFragment;
     private FragmentManager fragmentManager;
@@ -32,7 +34,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        sp = this.getPreferences(MODE_PRIVATE);
+        spEditor = sp.edit();
+
+        new Utils(this.sp.getInt("DARK_THEME", 0));
         Utils.setThemeOnCreate(this);
+
         this.bind = ActivityMainBinding.inflate(getLayoutInflater());
         View view = this.bind.getRoot();
         setContentView(view);
