@@ -3,4 +3,8 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="fragment_bg_light">#FFFFFF</color>
+    <color name="fragment_bg_dark">#383838</color>
+    <color name="ripple_color_light">#F6F6F6</color>
+    <color name="ripple_color_dark">#666666</color>
 </resources>

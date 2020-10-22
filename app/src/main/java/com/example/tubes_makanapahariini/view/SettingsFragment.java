@@ -2,8 +2,10 @@ package com.example.tubes_makanapahariini.view;
 
 //SETTINGS FRAGMENT
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +36,8 @@ public class SettingsFragment extends Fragment implements ViewGroup.OnClickListe
         View view = inflater.inflate(R.layout.setting_fragment, container, false);
         this.labelDarkTheme = view.findViewById(R.id.settings_text_theme);
         this.btnDarkTheme = view.findViewById(R.id.settings_button_theme);
+
+        this.btnDarkTheme.setOnClickListener(this);
         return view;
     }
 
@@ -49,6 +53,8 @@ public class SettingsFragment extends Fragment implements ViewGroup.OnClickListe
 
     @Override
     public void onClick(View v) {
-
+        if (v == this.btnDarkTheme) {
+            Log.d("debug", "change theme anjing");
+        }
     }
 }

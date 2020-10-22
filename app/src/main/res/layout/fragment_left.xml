@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="?attr/fragmentBackground"
     >
 
     <LinearLayout
@@ -17,8 +17,8 @@
             android:id="@+id/drawer_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:background="@drawable/ripple_effect"
+            android:padding="18dp"
+            android:background="?attr/rippleEffectTheme"
             android:text="@string/left_drawer_home"
             />
 
@@ -26,8 +26,8 @@
             android:id="@+id/drawer_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:background="@drawable/ripple_effect"
+            android:padding="18dp"
+            android:background="?attr/rippleEffectTheme"
             android:text="@string/left_drawer_search"
             />
 
@@ -35,8 +35,8 @@
             android:id="@+id/drawer_menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:background="@drawable/ripple_effect"
+            android:padding="18dp"
+            android:background="?attr/rippleEffectTheme"
             android:text="@string/left_drawer_menu"
             />
 
@@ -44,8 +44,8 @@
             android:id="@+id/drawer_setting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:background="@drawable/ripple_effect"
+            android:padding="18dp"
+            android:background="?attr/rippleEffectTheme"
             android:text="@string/left_drawer_settings"
             />
 
@@ -54,8 +54,8 @@
             android:id="@+id/drawer_exit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:background="@drawable/ripple_effect"
+            android:padding="18dp"
+            android:background="?attr/rippleEffectTheme"
             android:text="@string/left_drawer_exit"
             />
 
