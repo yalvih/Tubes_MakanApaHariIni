@@ -10,7 +10,6 @@ import android.widget.ListView;
 import androidx.fragment.app.Fragment;
 
 import com.example.tubes_makanapahariini.R;
-import com.example.tubes_makanapahariini.databinding.ActivityMainBinding;
 import com.example.tubes_makanapahariini.model.Food;
 import com.example.tubes_makanapahariini.presenter.MainMenuPresenter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -36,7 +35,7 @@ public class MainMenuFragment extends Fragment implements MainMenuPresenter.IMai
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.main_menu, container, false);
+        View view = inflater.inflate(R.layout.main_menu_fragment, container, false);
         this.listView = view.findViewById(R.id.list_foods);
         this.mainMenuPresenter = new MainMenuPresenter(this);
 
