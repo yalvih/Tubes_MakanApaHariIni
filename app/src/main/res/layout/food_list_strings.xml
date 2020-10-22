@@ -22,6 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Title"
+                android:fontFamily="@font/google_font_normal"
                 android:layout_weight="1"></TextView>
 
             <TextView
@@ -30,6 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="Details"
+                android:fontFamily="@font/google_font_normal"
                 android:gravity="bottom"></TextView>
 
         </LinearLayout>

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Tubes_MakanApaHariIni</string>
     <string name="main_caption">Mau Makan Apa Hari Ini, Blyat?</string>
+    <string name="add_menu">ADD NEW MENU</string>
     <string name="main_search">CARI</string>
     <string name="open_drawer">Drawer opened!</string>
     <string name="close_drawer">Drawer closed!</string>

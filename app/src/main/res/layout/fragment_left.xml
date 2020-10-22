@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:padding="18dp"
             android:background="?attr/rippleEffectTheme"
+            android:fontFamily="@font/google_font_normal"
             android:text="@string/left_drawer_home"
             />
 
@@ -27,6 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="18dp"
+            android:fontFamily="@font/google_font_normal"
             android:background="?attr/rippleEffectTheme"
             android:text="@string/left_drawer_search"
             />
@@ -36,6 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="18dp"
+            android:fontFamily="@font/google_font_normal"
             android:background="?attr/rippleEffectTheme"
             android:text="@string/left_drawer_menu"
             />
@@ -45,6 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="18dp"
+            android:fontFamily="@font/google_font_normal"
             android:background="?attr/rippleEffectTheme"
             android:text="@string/left_drawer_settings"
             />
@@ -55,6 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="18dp"
+            android:fontFamily="@font/google_font_normal"
             android:background="?attr/rippleEffectTheme"
             android:text="@string/left_drawer_exit"
             />

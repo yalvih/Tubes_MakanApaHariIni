@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private MainMenuFragment mainMenu;
     private SettingsFragment settingsFragment;
     private SearchFragment searchFragment;
+    private AddNewMenuFragment addNewMenuFragment;
     private MainActivityPresenter map;
 
     @Override
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.mainMenu = MainMenuFragment.newInstance();
         this.settingsFragment = SettingsFragment.newInstance();
         this.searchFragment = SearchFragment.newInstance();
+        this.addNewMenuFragment = AddNewMenuFragment.newInstance();
         this.fragmentManager = this.getSupportFragmentManager();
 
         ActionBarDrawerToggle abdt = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.open_drawer, R.string.close_drawer);
@@ -88,6 +90,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         else if (page == 4) {
             ft.replace(R.id.fragment_container, this.settingsFragment).addToBackStack(null);
+        }
+        else if (page == 5) {
+            ft.replace(R.id.fragment_container, this.addNewMenuFragment).addToBackStack(null);
         }
         ft.commit();
         this.bind.drawerLayout.closeDrawers();

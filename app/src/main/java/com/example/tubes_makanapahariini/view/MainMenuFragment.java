@@ -37,6 +37,8 @@ public class MainMenuFragment extends Fragment implements MainMenuPresenter.IMai
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.main_menu_fragment, container, false);
         this.listView = view.findViewById(R.id.list_foods);
+        this.fab = view.findViewById(R.id.fab1);
+        this.fab.setOnClickListener(this);
         this.mainMenuPresenter = new MainMenuPresenter(this);
 
         this.frag = new MainMenuFragmentAdapter(this.getActivity());
@@ -60,9 +62,9 @@ public class MainMenuFragment extends Fragment implements MainMenuPresenter.IMai
     //LATER USED FOR BUTTON
     @Override
     public void onClick(View v) {
-//        if(v == this.search){
-//            this.fragmentListener.changePage(2);
-//        }
+        if(v == this.fab){
+            this.fragmentListener.changePage(5);
+        }
     }
 
     @Override
