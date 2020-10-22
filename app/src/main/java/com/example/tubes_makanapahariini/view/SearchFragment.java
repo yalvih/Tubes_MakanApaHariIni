@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment;
 
 import com.example.tubes_makanapahariini.R;
 
+//SEACRH FRAGMENT
+
 public class SearchFragment extends Fragment implements ViewGroup.OnClickListener {
     SearchView search;
     ListView list_view;

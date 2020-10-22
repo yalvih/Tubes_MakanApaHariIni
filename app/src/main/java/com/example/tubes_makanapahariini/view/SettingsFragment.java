@@ -1,6 +1,6 @@
 package com.example.tubes_makanapahariini.view;
 
-//If it's not obvious enough from the name, settings page
+//SETTINGS FRAGMENT
 
 import android.content.Context;
 import android.os.Bundle;

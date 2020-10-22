@@ -1,6 +1,6 @@
 package com.example.tubes_makanapahariini.view;
 
-//Main Page
+//MAIN PAGE FRAGMENT
 
 import android.content.Context;
 import android.os.Bundle;
@@ -40,7 +40,6 @@ public class MainFragment extends Fragment implements ViewGroup.OnClickListener 
     @Override
     public void onClick(View v) {
         if (v == this.search) {
-            Log.d("debug", "Cari anjing");
             this.fragmentListener.changePage(2);
         }
     }

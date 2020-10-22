@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.tubes_makanapahariini.R;
 
-//Menu list page
+//MENU LIST PAGE WITH EDIT BUTTON
 
 public class MainMenu extends Fragment implements ViewGroup.OnClickListener{
     ListView listView;
