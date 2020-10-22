@@ -24,8 +24,8 @@ public class MainFragment extends Fragment implements ViewGroup.OnClickListener 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
-        this.caption = view.findViewById(R.id.main_text); //JUST TEXT
-        this.search = view.findViewById(R.id.main_search); //DRAWER DAN YANG MAIN PAGE PUNYA ADDRESS YANG SAMA !
+        this.caption = view.findViewById(R.id.main_text);
+        this.search = view.findViewById(R.id.main_search);
         this.search.setOnClickListener(this);
         return view;
     }

@@ -1,8 +1,11 @@
 package com.example.tubes_makanapahariini.view;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.tubes_makanapahariini.R;
@@ -11,18 +14,13 @@ import com.example.tubes_makanapahariini.model.Food;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FoodListAdapter extends BaseAdapter {
+public class MainMenuFragmentAdapter extends BaseAdapter {
     private List<Food> listItem;
-    private MainMenuFragment activity;
+    private Context fragment;
 
-    public FoodListAdapter(MainMenuFragment activity) {
-        this.activity = activity;
+    public MainMenuFragmentAdapter(Context fragment) {
+        this.fragment = fragment;
         this.listItem = new ArrayList<>();
-    }
-
-    public void add(Food newItem) {
-        this.listItem.add(newItem);
-        this.notifyDataSetChanged();
     }
 
     public void updateList(List<Food> newList) {
@@ -45,16 +43,16 @@ public class FoodListAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup parent) {
-        View itemView = this.activity.getLayoutInflater().inflate(R.layout.food_list_strings, null);
+    public View getView(int i, View itemView, ViewGroup parent) {
+        itemView = LayoutInflater.from(this.fragment).inflate(R.layout.food_list_strings, null);
         Food currentFood = (Food)this.getItem(i);
 
         //title
-        TextView tvName = view.findViewById(R.id.list_item_string);
+        TextView tvName = itemView.findViewById(R.id.list_item_string);
         tvName.setText(currentFood.getTitle());
 
         //description
-        TextView tvDetail = view.findViewById(R.id.list_item_string_detail);
+        TextView tvDetail = itemView.findViewById(R.id.list_item_string_detail);
         tvDetail.setText(currentFood.getDescription());
 
         return itemView;

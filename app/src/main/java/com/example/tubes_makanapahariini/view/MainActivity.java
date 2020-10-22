@@ -9,24 +9,22 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.AdapterView;
 
 import com.example.tubes_makanapahariini.R;
 import com.example.tubes_makanapahariini.databinding.ActivityMainBinding;
+import com.example.tubes_makanapahariini.presenter.MainActivityPresenter;
 
-public class MainActivity extends AppCompatActivity implements FragmentListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener,FragmentListener, AdapterView.OnItemClickListener {
     private Toolbar toolbar;
     private MainFragment mainFragment;
     private FragmentManager fragmentManager;
     private DrawerLayout drawer;
-    private ListView listView;
-    private TextView foodListItem;
-    private FoodListAdapter adapter;
     private ActivityMainBinding bind;
-    private MainMenu mainMenu;
+    private MainMenuFragment mainMenu;
     private SettingsFragment settingsFragment;
     private SearchFragment searchFragment;
+    private MainActivityPresenter map;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +37,10 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
         //SOON TERMINATED DO NOT DELETE
         this.toolbar = findViewById(R.id.toolbar);
         this.drawer = findViewById(R.id.drawer_layout);
-        this.foodListItem = this.findViewById(R.id.food_item_string);
-        this.listView = this.findViewById(R.id.list_foods);
         //ENDS HERE
 
         this.mainFragment = MainFragment.newInstance();
-        this.mainMenu = MainMenu.newInstance();
+        this.mainMenu = MainMenuFragment.newInstance();
         this.settingsFragment = SettingsFragment.newInstance();
         this.searchFragment = SearchFragment.newInstance();
         this.fragmentManager = this.getSupportFragmentManager();
@@ -52,6 +48,9 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
         ActionBarDrawerToggle abdt = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.open_drawer, R.string.close_drawer);
         drawer.addDrawerListener(abdt);
         abdt.syncState();
+
+//        this.map = new MainActivityPresenter();
+
         changePage(1);
     }
 
@@ -84,5 +83,15 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
     @Override
     public void showMessage(String result) {
         //What is this for again?
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }

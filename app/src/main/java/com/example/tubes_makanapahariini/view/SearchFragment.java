@@ -11,12 +11,18 @@ import android.widget.SearchView;
 import androidx.fragment.app.Fragment;
 
 import com.example.tubes_makanapahariini.R;
+import com.example.tubes_makanapahariini.model.Food;
+import com.example.tubes_makanapahariini.presenter.SearchPresenter;
+
+import java.util.List;
 
 //SEACRH FRAGMENT
 
-public class SearchFragment extends Fragment implements ViewGroup.OnClickListener {
+public class SearchFragment extends Fragment implements SearchPresenter.ISearchPresenter, ViewGroup.OnClickListener {
     SearchView search;
     ListView list_view;
+    SearchFragmentAdapter searchFragmentAdapter;
+    SearchPresenter searchPresenter;
     FragmentListener fragmentListener;
 
     public SearchFragment(){}
@@ -32,6 +38,11 @@ public class SearchFragment extends Fragment implements ViewGroup.OnClickListene
         View view = inflater.inflate(R.layout.search_fragment, container, false);
         this.search = view.findViewById(R.id.search);
         this.list_view = view.findViewById(R.id.list_foods);
+        this.searchPresenter = new SearchPresenter(this);
+
+        this.searchFragmentAdapter = new SearchFragmentAdapter(this.getActivity());
+        this.list_view.setAdapter(this.searchFragmentAdapter);
+        searchPresenter.loadData();
         return view;
     }
 
@@ -43,6 +54,12 @@ public class SearchFragment extends Fragment implements ViewGroup.OnClickListene
         else {
             throw new ClassCastException(context.toString() + " must implement FragmentListener");
         }
+    }
+
+    @Override
+    public void UpdateList(List<Food> data) {
+        searchFragmentAdapter.updateList(data);
+        searchFragmentAdapter.notifyDataSetChanged();
     }
 
     @Override

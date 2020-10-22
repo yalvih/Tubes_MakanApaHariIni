@@ -10,17 +10,26 @@ import android.widget.ListView;
 import androidx.fragment.app.Fragment;
 
 import com.example.tubes_makanapahariini.R;
+import com.example.tubes_makanapahariini.databinding.ActivityMainBinding;
+import com.example.tubes_makanapahariini.model.Food;
+import com.example.tubes_makanapahariini.presenter.MainMenuPresenter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.List;
 
 //MENU LIST PAGE WITH EDIT BUTTON
 
-public class MainMenu extends Fragment implements ViewGroup.OnClickListener{
+public class MainMenuFragment extends Fragment implements MainMenuPresenter.IMainMenuActivity, ViewGroup.OnClickListener{
     ListView listView;
     FragmentListener fragmentListener;
+    MainMenuPresenter mainMenuPresenter;
+    FloatingActionButton fab;
+    MainMenuFragmentAdapter frag;
 
-    public MainMenu() { }
+    public MainMenuFragment() { }
 
-    public static MainMenu newInstance() {
-        MainMenu fragment = new MainMenu();
+    public static MainMenuFragment newInstance() {
+        MainMenuFragment fragment = new MainMenuFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -29,6 +38,12 @@ public class MainMenu extends Fragment implements ViewGroup.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.main_menu, container, false);
         this.listView = view.findViewById(R.id.list_foods);
+        this.mainMenuPresenter = new MainMenuPresenter(this);
+
+        this.frag = new MainMenuFragmentAdapter(this.getActivity());
+        this.listView.setAdapter(this.frag);
+//        this.listView.setOnClickListener(this);
+        mainMenuPresenter.loadData();
         return view;
     }
 
@@ -49,5 +64,11 @@ public class MainMenu extends Fragment implements ViewGroup.OnClickListener{
 //        if(v == this.search){
 //            this.fragmentListener.changePage(2);
 //        }
+    }
+
+    @Override
+    public void UpdateList(List<Food> data) {
+        frag.updateList(data);
+        frag.notifyDataSetChanged();
     }
 }
