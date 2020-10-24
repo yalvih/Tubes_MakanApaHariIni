@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DBHandler extends SQLiteOpenHelper {
+
     protected static final int database_version = 1;
     protected static final String database_name = "Food_List";
 
@@ -52,11 +53,11 @@ public class DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db  = getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_NAME, Food.getTitle());
-        values.put(KEY_DESC, Food.getDescription());
-        values.put(KEY_INGREDIENTS, Food.getIngredients());
-        values.put(KEY_LOCATION_RESTAURANT, Food.getLocate_restaurant());
-        values.put(KEY_NAME_RESTAURANT, Food.getName_restaurant());
+        values.put(KEY_NAME, food.getTitle());
+        values.put(KEY_DESC, food.getDescription());
+        values.put(KEY_INGREDIENTS, food.getIngredients());
+        values.put(KEY_LOCATION_RESTAURANT, food.getLocate_restaurant());
+        values.put(KEY_NAME_RESTAURANT, food.getName_restaurant());
 
         db.insert(TABLE_FOOD, null, values);
         db.close();

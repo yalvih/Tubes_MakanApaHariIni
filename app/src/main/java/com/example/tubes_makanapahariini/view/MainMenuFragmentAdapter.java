@@ -24,7 +24,10 @@ public class MainMenuFragmentAdapter extends BaseAdapter {
     }
 
     public void updateList(List<Food> newList) {
+
         this.listItem = newList;
+//        this.updateList(newList);
+        this.notifyDataSetChanged();
     }
 
     @Override
