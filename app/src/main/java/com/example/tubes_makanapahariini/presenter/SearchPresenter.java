@@ -20,10 +20,16 @@ public class SearchPresenter {
 
     public interface ISearchPresenter{
         void UpdateList(List<Food> data);
+        void openDetails(int id);
     }
 
-    public void loadData(){
-        this.foods = dbHandler.getAllRecord();
+    public void openDetails(int i) {
+        int id = this.foods.get(i).getId();
+        this.ui.openDetails(id);
+    }
+
+    public void loadData(String query){
+        this.foods = dbHandler.getSearchResults(query);
         this.ui.UpdateList(this.foods);
     }
 }

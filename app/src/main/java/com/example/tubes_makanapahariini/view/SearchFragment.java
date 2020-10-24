@@ -2,9 +2,11 @@ package com.example.tubes_makanapahariini.view;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
 
@@ -19,7 +21,7 @@ import java.util.List;
 
 //SEACRH FRAGMENT
 
-public class SearchFragment extends Fragment implements SearchPresenter.ISearchPresenter, ViewGroup.OnClickListener {
+public class SearchFragment extends Fragment implements AdapterView.OnItemClickListener, SearchPresenter.ISearchPresenter, ViewGroup.OnClickListener {
     SearchView search;
     ListView list_view;
     SearchFragmentAdapter searchFragmentAdapter;
@@ -43,9 +45,24 @@ public class SearchFragment extends Fragment implements SearchPresenter.ISearchP
         this.dbHandler = new DBHandler(this.getContext());
         this.searchPresenter = new SearchPresenter(this, this.dbHandler);
 
+        this.search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                search.clearFocus();
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                Log.d("SearchChange", "blyat");
+                searchPresenter.loadData(newText);
+                return true;
+            }
+        });
+
         this.searchFragmentAdapter = new SearchFragmentAdapter(this.getActivity());
         this.list_view.setAdapter(this.searchFragmentAdapter);
-        searchPresenter.loadData();
+        this.list_view.setOnItemClickListener(this);
         return view;
     }
 
@@ -68,5 +85,16 @@ public class SearchFragment extends Fragment implements SearchPresenter.ISearchP
     @Override
     public void onClick(View v) {
 
+    }
+
+    @Override
+    public void openDetails(int id) {
+        this.fragmentListener.changeMenuId(id);
+        this.fragmentListener.changePage(6);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+        this.searchPresenter.openDetails(i);
     }
 }
