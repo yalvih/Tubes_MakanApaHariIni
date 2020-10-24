@@ -40,4 +40,12 @@ public class MenuDetailPresenter {
         Food item = this.dbHandler.getFood(this.id);
         this.ui.writeData(item);
     }
+
+    public void saveData(Food food){
+        this.dbHandler.updateFood(food);
+    }
+
+    public void deleteData(Food food){
+        this.dbHandler.deleteModel(food);
+    }
 }
