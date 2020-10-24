@@ -67,20 +67,20 @@ public class DBHandler extends SQLiteOpenHelper {
     public Food getFood(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.query(TABLE_FOOD, new String[] {KEY_ID, KEY_NAME, KEY_DESC, KEY_INGREDIENTS, KEY_LOCATION_RESTAURANT, KEY_NAME_RESTAURANT}, KEY_ID + "=?", new String[] {
-                String.valueOf(id) }, null, null, null, null);
+        Cursor cursor = db.query(TABLE_FOOD, new String[] {KEY_ID, KEY_NAME, KEY_DESC, KEY_INGREDIENTS, KEY_LOCATION_RESTAURANT, KEY_NAME_RESTAURANT}, KEY_ID + "=?", new String[] { String.valueOf(id) }, null, null, null, null);
         if (cursor != null) cursor.moveToFirst();
 
         Food food = new Food(Integer.parseInt(cursor.getString(0)),
                 cursor.getString(1), cursor.getString(2),
-                cursor.getString(3), cursor.getString(4), cursor.getString(5));
+                cursor.getString(3), cursor.getString(4),
+                cursor.getString(5));
         return food;
     }
 
-    // get All Record
+    // Get all records
     public List<Food> getAllRecord() {
         List<Food> foodList = new ArrayList<Food>();
-        // Select All Query
+        // Select all query
         String selectQuery = "SELECT * FROM " + TABLE_FOOD;
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -88,7 +88,6 @@ public class DBHandler extends SQLiteOpenHelper {
 
         if (cursor.moveToFirst()) {
             do {
-                Log.d("Cursor number", Integer.toString(cursor.getPosition()));
                 Food food = new Food(); //THIS
                 food.setId(Integer.parseInt(cursor.getString(0)));
                 food.setTitle(cursor.getString(1));
@@ -98,21 +97,62 @@ public class DBHandler extends SQLiteOpenHelper {
                 food.setName_restaurant(cursor.getString(5));
 
                 foodList.add(food);
-                Log.d("DBFood_FoodID", Integer.toString(food.getId()));
-                Log.d("DBFood_FoodTitle", food.getTitle());
-                Log.d("DBFood_FoodDesc", food.getDescription());
-                Log.d("DBFood_FoodIngr", food.getIngredients());
-                Log.d("DBFood_FoodRest", food.getLocate_restaurant());
             } while (cursor.moveToNext());
         }
 
-        for (int i = 0; i < foodList.size(); i++) {
-            Log.d("DBList_FoodID", Integer.toString(foodList.get(i).getId()));
-            Log.d("DBList_FoodTitle", foodList.get(i).getTitle());
-            Log.d("DBList_FoodDesc", foodList.get(i).getDescription());
-            Log.d("DBList_FoodIngr", foodList.get(i).getIngredients());
-            Log.d("DBList_FoodRest", foodList.get(i).getLocate_restaurant());
+        // return contact list
+        return foodList;
+    }
+
+    // Get search results
+    public List<Food> getSearchResults(String query) {
+        List<Food> foodList = new ArrayList<Food>();
+        // Select search result query
+        StringBuilder searchQuery;
+        if (!query.equals("")) {
+            searchQuery = new StringBuilder("SELECT * FROM " + TABLE_FOOD);
+            // Split keywords if query contains whitespace
+            String[] keywords = query.split(" ");
+            // Match names
+            searchQuery.append(" WHERE " + KEY_NAME + " LIKE '%");
+            for (int i = 0; i < keywords.length; i++) {
+                if (i == keywords.length - 1) {
+                    searchQuery.append(keywords[i]).append("%");
+                }
+                else searchQuery.append(keywords[i]).append("%' OR ").append(KEY_NAME).append(" LIKE '%");
+            }
+            // Match description
+            searchQuery.append("' OR " + KEY_DESC + " LIKE '%");
+            for (int i = 0; i < keywords.length; i++) {
+                if (i == keywords.length - 1) {
+                    searchQuery.append(keywords[i]).append("%");
+                }
+                else searchQuery.append(keywords[i]).append("%' OR ").append(KEY_DESC).append(" LIKE '%");
+            }
+            searchQuery.append("' ORDER BY " + KEY_ID);
         }
+        // Select nothing if search field is left empty
+        else searchQuery = new StringBuilder("SELECT * FROM " + TABLE_FOOD + " WHERE 1 = 0");
+
+        Log.d("DBQuery", searchQuery.toString());
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(searchQuery.toString(), null);
+
+        if (cursor.moveToFirst()) {
+            Log.d("Cursor number", Boolean.toString(cursor.moveToFirst()));
+            do {
+                Food food = new Food(); //THIS
+                food.setId(Integer.parseInt(cursor.getString(0)));
+                food.setTitle(cursor.getString(1));
+                food.setDescription(cursor.getString(2));
+                food.setIngredients(cursor.getString(3));
+                food.setLocate_restaurant(cursor.getString(4));
+                food.setName_restaurant(cursor.getString(5));
+
+                foodList.add(food);
+            } while (cursor.moveToNext());
+        }
+
         // return contact list
         return foodList;
     }

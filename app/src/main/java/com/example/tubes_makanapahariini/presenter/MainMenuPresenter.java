@@ -40,13 +40,6 @@ public class MainMenuPresenter {
 
     public void loadData(){
         this.foods = dbHandler.getAllRecord();
-
-        String str = "";
-        for (int i = 0; i < this.foods.size(); i++) {
-            str += this.foods.get(i).getId();
-        }
-        Log.d("debug", str);
-
         this.ui.UpdateList(this.foods);
     }
 }

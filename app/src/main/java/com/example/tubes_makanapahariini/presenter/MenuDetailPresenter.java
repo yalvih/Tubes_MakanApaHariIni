@@ -36,7 +36,7 @@ public class MenuDetailPresenter {
         //this.ui.UpdateData(this.foods);
     }
 
-    public void readData(){
+    public void readData() {
         Food item = this.dbHandler.getFood(this.id);
         this.ui.writeData(item);
     }
