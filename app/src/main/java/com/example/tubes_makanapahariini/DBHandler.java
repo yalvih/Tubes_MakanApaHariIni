@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.example.tubes_makanapahariini.model.Food;
 
@@ -80,13 +81,14 @@ public class DBHandler extends SQLiteOpenHelper {
     public List<Food> getAllRecord() {
         List<Food> foodList = new ArrayList<Food>();
         // Select All Query
-        String selectQuery = "SELECT  * FROM " + TABLE_FOOD;
+        String selectQuery = "SELECT * FROM " + TABLE_FOOD;
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         if (cursor.moveToFirst()) {
             do {
+                Log.d("Cursor number", Integer.toString(cursor.getPosition()));
                 Food food = new Food(); //THIS
                 food.setId(Integer.parseInt(cursor.getString(0)));
                 food.setTitle(cursor.getString(1));
@@ -96,9 +98,21 @@ public class DBHandler extends SQLiteOpenHelper {
                 food.setName_restaurant(cursor.getString(5));
 
                 foodList.add(food);
+                Log.d("DBFood_FoodID", Integer.toString(food.getId()));
+                Log.d("DBFood_FoodTitle", food.getTitle());
+                Log.d("DBFood_FoodDesc", food.getDescription());
+                Log.d("DBFood_FoodIngr", food.getIngredients());
+                Log.d("DBFood_FoodRest", food.getLocate_restaurant());
             } while (cursor.moveToNext());
         }
 
+        for (int i = 0; i < foodList.size(); i++) {
+            Log.d("DBList_FoodID", Integer.toString(foodList.get(i).getId()));
+            Log.d("DBList_FoodTitle", foodList.get(i).getTitle());
+            Log.d("DBList_FoodDesc", foodList.get(i).getDescription());
+            Log.d("DBList_FoodIngr", foodList.get(i).getIngredients());
+            Log.d("DBList_FoodRest", foodList.get(i).getLocate_restaurant());
+        }
         // return contact list
         return foodList;
     }

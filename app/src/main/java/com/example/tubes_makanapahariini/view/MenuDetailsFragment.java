@@ -10,8 +10,10 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.tubes_makanapahariini.DBHandler;
 import com.example.tubes_makanapahariini.R;
 import com.example.tubes_makanapahariini.model.Food;
+import com.example.tubes_makanapahariini.presenter.MainMenuPresenter;
 import com.example.tubes_makanapahariini.presenter.MenuDetailPresenter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -27,6 +29,7 @@ public class MenuDetailsFragment extends Fragment implements ViewGroup.OnClickLi
     TextView tvIngredients;
     TextView tvNameRestaurant;
     TextView tvLocateRestaurant;
+    DBHandler dbHandler;
 
     public MenuDetailsFragment() { }
 
@@ -40,6 +43,7 @@ public class MenuDetailsFragment extends Fragment implements ViewGroup.OnClickLi
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.menu_detail_fragment, container, false);
+        this.dbHandler = new DBHandler(this.getActivity());
 
         int id = this.getArguments().getInt("id",0);
         this.tvTitle = view.findViewById(R.id.details_title);
@@ -48,6 +52,7 @@ public class MenuDetailsFragment extends Fragment implements ViewGroup.OnClickLi
         this.tvNameRestaurant = view.findViewById(R.id.details_name_restaurant);
         this.tvLocateRestaurant = view.findViewById(R.id.details_location_restaurant);
 
+        this.menuDetailPresenter = new MenuDetailPresenter(id, this, this.dbHandler);
         this.menuDetailPresenter.readData();
         return view;
     }

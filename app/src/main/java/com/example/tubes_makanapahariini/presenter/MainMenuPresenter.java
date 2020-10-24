@@ -41,14 +41,11 @@ public class MainMenuPresenter {
     public void loadData(){
         this.foods = dbHandler.getAllRecord();
 
-        //Debug
+        String str = "";
         for (int i = 0; i < this.foods.size(); i++) {
-            Log.d("Load_FoodID", Integer.toString(foods.get(i).getId()));
-            Log.d("Load_FoodTitle", foods.get(i).getTitle());
-            Log.d("Load_FoodDesc", foods.get(i).getDescription());
-            Log.d("Load_FoodIngr", foods.get(i).getIngredients());
-            Log.d("Load_FoodRest", foods.get(i).getLocate_restaurant());
+            str += this.foods.get(i).getId();
         }
+        Log.d("debug", str);
 
         this.ui.UpdateList(this.foods);
     }

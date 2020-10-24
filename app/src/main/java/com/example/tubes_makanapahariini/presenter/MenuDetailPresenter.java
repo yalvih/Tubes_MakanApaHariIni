@@ -11,9 +11,9 @@ public class MenuDetailPresenter {
     public Food food;
     public int id;
     public DBHandler dbHandler;
-    public MainMenuPresenter.IMainMenuActivity ui;
+    public MenuDetailPresenter.IMenuDetailActivity ui;
 
-    public MenuDetailPresenter(int id, MainMenuPresenter.IMainMenuActivity ui) {
+    public MenuDetailPresenter(int id, MenuDetailPresenter.IMenuDetailActivity ui, DBHandler dbHandler) {
         //this.food = new Food();
         this.id = id;
         this.dbHandler = dbHandler;
@@ -38,6 +38,6 @@ public class MenuDetailPresenter {
 
     public void readData(){
         Food item = this.dbHandler.getFood(this.id);
-//        this.ui.writeData();
+        this.ui.writeData(item);
     }
 }
