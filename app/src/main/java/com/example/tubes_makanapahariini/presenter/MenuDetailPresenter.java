@@ -1,5 +1,6 @@
 package com.example.tubes_makanapahariini.presenter;
 
+import com.example.tubes_makanapahariini.DBHandler;
 import com.example.tubes_makanapahariini.model.Food;
 
 import java.util.ArrayList;
@@ -8,15 +9,20 @@ import java.util.List;
 
 public class MenuDetailPresenter {
     public Food food;
+    public int id;
+    public DBHandler dbHandler;
     public MainMenuPresenter.IMainMenuActivity ui;
 
-    public MenuDetailPresenter(MainMenuPresenter.IMainMenuActivity ui) {
+    public MenuDetailPresenter(int id, MainMenuPresenter.IMainMenuActivity ui) {
         //this.food = new Food();
+        this.id = id;
+        this.dbHandler = dbHandler;
         this.ui = ui;
     }
 
-    public interface IMainMenuActivity{
+    public interface IMenuDetailActivity{
         void UpdateData(List<Food> data);
+        void writeData(Food item);
     }
 
     public void addNew(String title, String detail) {
@@ -28,5 +34,10 @@ public class MenuDetailPresenter {
 
     public void loadData() {
         //this.ui.UpdateData(this.foods);
+    }
+
+    public void readData(){
+        Food item = this.dbHandler.getFood(this.id);
+//        this.ui.writeData();
     }
 }

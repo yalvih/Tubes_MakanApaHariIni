@@ -15,7 +15,9 @@ import com.example.tubes_makanapahariini.model.Food;
 import com.example.tubes_makanapahariini.presenter.MenuDetailPresenter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class MenuDetailsFragment extends Fragment implements ViewGroup.OnClickListener {
+import java.util.List;
+
+public class MenuDetailsFragment extends Fragment implements ViewGroup.OnClickListener, MenuDetailPresenter.IMenuDetailActivity{
     FragmentListener fragmentListener;
     MenuDetailPresenter menuDetailPresenter;
     FloatingActionButton fab;
@@ -23,34 +25,30 @@ public class MenuDetailsFragment extends Fragment implements ViewGroup.OnClickLi
     TextView tvTitle;
     TextView tvDescription;
     TextView tvIngredients;
+    TextView tvNameRestaurant;
+    TextView tvLocateRestaurant;
 
     public MenuDetailsFragment() { }
 
-    public static MenuDetailsFragment newInstance() {
+    public static MenuDetailsFragment newInstance(int id) {
         MenuDetailsFragment fragment = new MenuDetailsFragment();
         Bundle args = new Bundle();
+        args.putInt("id", id);
         fragment.setArguments(args);
         return fragment;
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.menu_detail_fragment, container, false);
-        //this.fab = view.findViewById(R.id.fab1);
-        //this.fab.setOnClickListener(this);
-        //this.menuDetailPresenter = new MainMenuPresenter(this);
 
-        //this.frag = new MainMenuFragmentAdapter(this.getActivity());
-        //this.listView.setAdapter(this.frag);
-        //this.listView.setOnClickListener(this);
-
+        int id = this.getArguments().getInt("id",0);
         this.tvTitle = view.findViewById(R.id.details_title);
         this.tvDescription = view.findViewById(R.id.details_description);
         this.tvIngredients = view.findViewById(R.id.details_ingredients);
+        this.tvNameRestaurant = view.findViewById(R.id.details_name_restaurant);
+        this.tvLocateRestaurant = view.findViewById(R.id.details_location_restaurant);
 
-        this.tvTitle.setText("Menu Title");
-        this.tvDescription.setText("Description");
-        this.tvIngredients.setText("- Ingredient 1\n- Ingredient2\n- Ingredient 3\n- Ingredient 4");
-        //menuDetailPresenter.loadData();
+        this.menuDetailPresenter.readData();
         return view;
     }
 
@@ -65,12 +63,25 @@ public class MenuDetailsFragment extends Fragment implements ViewGroup.OnClickLi
         }
     }
 
-    //LATER USED FOR BUTTON
     @Override
     public void onClick(View v) {
         if(v == this.fab){
             this.fragmentListener.changePage(5);
         }
+    }
+
+    @Override
+    public void UpdateData(List<Food> data) {
+
+    }
+
+    @Override
+    public void writeData(Food item) {
+        this.tvTitle.setText(item.getTitle());
+        this.tvDescription.setText(item.getDescription());
+        this.tvIngredients.setText(item.getIngredients());
+        this.tvNameRestaurant.setText(item.getName_restaurant());
+        this.tvLocateRestaurant.setText(item.getLocate_restaurant());
     }
 }
 

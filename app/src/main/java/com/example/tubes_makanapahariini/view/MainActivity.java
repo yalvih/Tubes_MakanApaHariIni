@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.settingsFragment = SettingsFragment.newInstance();
         this.searchFragment = SearchFragment.newInstance();
         this.addNewMenuFragment = AddNewMenuFragment.newInstance();
-        this.menuDetailsFragment = MenuDetailsFragment.newInstance();
+        this.menuDetailsFragment = MenuDetailsFragment.newInstance(0);
         this.fragmentManager = this.getSupportFragmentManager();
 
         ActionBarDrawerToggle abdt = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.open_drawer, R.string.close_drawer);
@@ -103,8 +103,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else if (page == 5) {
             ft.replace(R.id.fragment_container, this.addNewMenuFragment).addToBackStack(null);
         }
-        //Set page number to 99 for debug purposes - fragment is yet to be accessible as of the last commit.
-        else if (page == 99) {
+        else if (page == 6) {
             ft.replace(R.id.fragment_container, this.menuDetailsFragment).addToBackStack(null);
         }
         ft.commit();
@@ -116,6 +115,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.moveTaskToBack(true);
         this.finish();
         this.bind.drawerLayout.closeDrawers();
+    }
+
+    @Override
+    public void changeMenuId(int id){
+        this.menuDetailsFragment = MenuDetailsFragment.newInstance(id);
     }
 
     @Override

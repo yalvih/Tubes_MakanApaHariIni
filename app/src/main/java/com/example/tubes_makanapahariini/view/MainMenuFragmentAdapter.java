@@ -43,19 +43,13 @@ public class MainMenuFragmentAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View itemView, ViewGroup parent) {
-        itemView = LayoutInflater.from(this.fragment).inflate(R.layout.food_list_strings, null);
+    public View getView(int i, View view, ViewGroup parent) {
+        view = LayoutInflater.from(this.fragment).inflate(R.layout.food_list_strings, parent , false);
+        ViewHolder viewHolder = new ViewHolder(view);
         Food currentFood = (Food)this.getItem(i);
-
-        //title
-        TextView tvName = itemView.findViewById(R.id.list_item_string);
-        tvName.setText(currentFood.getTitle());
-
-        //description
-        TextView tvDetail = itemView.findViewById(R.id.list_item_string_detail);
-        tvDetail.setText(currentFood.getDescription());
-
-        return itemView;
+        viewHolder.updateView(currentFood);
+        view.setTag(viewHolder);
+        return view;
     }
 
     private class ViewHolder{
@@ -63,10 +57,9 @@ public class MainMenuFragmentAdapter extends BaseAdapter {
         protected TextView details;
         protected int i;
 
-        public ViewHolder(View view, int i) {
+        public ViewHolder(View view) {
             this.title = view.findViewById(R.id.list_item_string);
             this.details = view.findViewById(R.id.list_item_string_detail);
-            this.i = i;
         }
 
         public void updateView(final Food food){

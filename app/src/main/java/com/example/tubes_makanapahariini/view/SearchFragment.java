@@ -10,6 +10,7 @@ import android.widget.SearchView;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.tubes_makanapahariini.DBHandler;
 import com.example.tubes_makanapahariini.R;
 import com.example.tubes_makanapahariini.model.Food;
 import com.example.tubes_makanapahariini.presenter.SearchPresenter;
@@ -24,6 +25,7 @@ public class SearchFragment extends Fragment implements SearchPresenter.ISearchP
     SearchFragmentAdapter searchFragmentAdapter;
     SearchPresenter searchPresenter;
     FragmentListener fragmentListener;
+    DBHandler dbHandler;
 
     public SearchFragment(){}
 
@@ -38,7 +40,8 @@ public class SearchFragment extends Fragment implements SearchPresenter.ISearchP
         View view = inflater.inflate(R.layout.search_fragment, container, false);
         this.search = view.findViewById(R.id.search);
         this.list_view = view.findViewById(R.id.list_foods);
-        this.searchPresenter = new SearchPresenter(this);
+        this.dbHandler = new DBHandler(this.getContext());
+        this.searchPresenter = new SearchPresenter(this, this.dbHandler);
 
         this.searchFragmentAdapter = new SearchFragmentAdapter(this.getActivity());
         this.list_view.setAdapter(this.searchFragmentAdapter);

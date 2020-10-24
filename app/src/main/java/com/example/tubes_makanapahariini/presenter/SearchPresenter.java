@@ -1,5 +1,6 @@
 package com.example.tubes_makanapahariini.presenter;
 
+import com.example.tubes_makanapahariini.DBHandler;
 import com.example.tubes_makanapahariini.model.Food;
 
 import java.util.ArrayList;
@@ -9,10 +10,12 @@ import java.util.List;
 public class SearchPresenter {
     public List<Food> foods;
     public ISearchPresenter ui;
+    public DBHandler dbHandler;
 
-    public SearchPresenter(ISearchPresenter ui) {
+    public SearchPresenter(ISearchPresenter ui, DBHandler dbHandler) {
         this.foods = new ArrayList<>();
         this.ui = ui;
+        this.dbHandler = dbHandler;
     }
 
     public interface ISearchPresenter{
@@ -20,7 +23,7 @@ public class SearchPresenter {
     }
 
     public void loadData(){
-        this.foods.addAll(Arrays.asList(MockFood.foodObjectArr));
+        this.foods = dbHandler.getAllRecord();
         this.ui.UpdateList(this.foods);
     }
 }

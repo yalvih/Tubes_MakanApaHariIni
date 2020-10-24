@@ -3,19 +3,26 @@ package com.example.tubes_makanapahariini.model;
 import java.lang.reflect.Array;
 
 public class Food {
-    public String title;
-    public String description;
-    public String ingredients;
+    public static String getLocate_restaurant;
+    private static String title;
+    private static String description;
+    private static String ingredients;
+    private static String locate_restaurant;
+    private static String name_restaurant;
     public int id;
 
-    public Food(String title, String description, String ingredients, int id) {
+    public Food(int id, String title, String description, String ingredients, String locate_restaurant, String name_restaurant) {
         this.title = title;
         this.description = description;
         this.ingredients = ingredients;
+        this.locate_restaurant = locate_restaurant;
+        this.name_restaurant = name_restaurant;
         this.id = id;
     }
 
-    public String getTitle() {
+    public Food(){}
+
+    public static String getTitle() {
         return title;
     }
 
@@ -23,8 +30,24 @@ public class Food {
         this.title = title;
     }
 
-    public String getDescription() {
+    public static String getDescription() {
         return description;
+    }
+
+    public static String getLocate_restaurant() {
+        return locate_restaurant;
+    }
+
+    public void setLocate_restaurant(String locate_restaurant) {
+        this.locate_restaurant = locate_restaurant;
+    }
+
+    public static String getName_restaurant() {
+        return name_restaurant;
+    }
+
+    public void setName_restaurant(String name_restaurant) {
+        this.name_restaurant = name_restaurant;
     }
 
     public void setDescription(String description) {
@@ -35,7 +58,7 @@ public class Food {
         this.ingredients = ingredients;
     }
 
-    public String getIngredients() {
+    public static String getIngredients() {
         return ingredients;
     }
 
