@@ -23,13 +23,12 @@ public class MenuDetailsFragment extends Fragment implements ViewGroup.OnClickLi
     FragmentListener fragmentListener;
     MenuDetailPresenter menuDetailPresenter;
     FloatingActionButton fab;
-    //MainMenuFragmentAdapter frag;
+    DBHandler dbHandler;
     TextView tvTitle;
     TextView tvDescription;
     TextView tvIngredients;
     TextView tvNameRestaurant;
     TextView tvLocateRestaurant;
-    DBHandler dbHandler;
 
     public MenuDetailsFragment() { }
 

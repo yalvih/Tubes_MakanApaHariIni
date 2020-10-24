@@ -67,13 +67,13 @@ public class DBHandler extends SQLiteOpenHelper {
     public Food getFood(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.query(TABLE_FOOD, new String[] {KEY_ID, KEY_NAME, KEY_DESC, KEY_LOCATION_RESTAURANT, KEY_NAME_RESTAURANT}, KEY_ID + "=?", new String[] { String.valueOf(id) }, null, null, null, null);
+        Cursor cursor = db.query(TABLE_FOOD, new String[] {KEY_ID, KEY_NAME, KEY_DESC, KEY_INGREDIENTS, KEY_LOCATION_RESTAURANT, KEY_NAME_RESTAURANT}, KEY_ID + "=?", new String[] {
+                String.valueOf(id) }, null, null, null, null);
         if (cursor != null) cursor.moveToFirst();
 
         Food food = new Food(Integer.parseInt(cursor.getString(0)),
                 cursor.getString(1), cursor.getString(2),
-                cursor.getString(3), cursor.getString(4),
-                cursor.getString(5));
+                cursor.getString(3), cursor.getString(4), cursor.getString(5));
         return food;
     }
 
