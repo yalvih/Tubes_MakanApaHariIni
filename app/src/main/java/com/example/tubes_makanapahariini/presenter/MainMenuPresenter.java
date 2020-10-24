@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.example.tubes_makanapahariini.DBHandler;
 import com.example.tubes_makanapahariini.model.Food;
+import java.util.concurrent.ThreadLocalRandom;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -40,13 +41,6 @@ public class MainMenuPresenter {
 
     public void loadData(){
         this.foods = dbHandler.getAllRecord();
-
-        String str = "";
-        for (int i = 0; i < this.foods.size(); i++) {
-            str += this.foods.get(i).getId();
-        }
-        Log.d("debug", str);
-
         this.ui.UpdateList(this.foods);
     }
 }
