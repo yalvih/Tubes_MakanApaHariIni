@@ -7,10 +7,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 
 import com.example.tubes_makanapahariini.R;
@@ -108,6 +110,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         ft.commit();
         this.bind.drawerLayout.closeDrawers();
+        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(this.bind.drawerLayout.getWindowToken(), 0);
     }
 
     @Override

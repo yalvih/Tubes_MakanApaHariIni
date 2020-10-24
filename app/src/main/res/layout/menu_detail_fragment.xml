@@ -7,24 +7,29 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:padding="20dp"
         android:orientation="vertical">
 
-        <TextView
+        <EditText
             android:id="@+id/details_title"
+            android:focusableInTouchMode="false"
+            android:background="?android:attr/colorBackground"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="18dp"
-            android:gravity="center" android:textSize="20sp">
+            android:gravity="center"
+            android:textSize="20sp">
+        </EditText>
 
-        </TextView>
-
-        <TextView
+        <EditText
             android:id="@+id/details_description"
+            android:focusableInTouchMode="false"
+            android:background="?android:attr/colorBackground"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="14sp">
-        </TextView>
+        </EditText>
 
         <TextView
             android:layout_width="match_parent"
@@ -38,13 +43,14 @@
             android:textSize="18sp">
         </TextView>
 
-        <TextView
+        <EditText
             android:id="@+id/details_ingredients"
+            android:focusableInTouchMode="false"
+            android:background="?android:attr/colorBackground"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="14sp">
-
-        </TextView>
+        </EditText>
 
         <TextView
             android:layout_width="match_parent"
@@ -53,13 +59,14 @@
             android:textSize="18sp">
         </TextView>
 
-        <TextView
+        <EditText
             android:id="@+id/details_name_restaurant"
+            android:focusableInTouchMode="false"
+            android:background="?android:attr/colorBackground"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="14sp">
-
-        </TextView>
+        </EditText>
 
         <TextView
             android:layout_width="match_parent"
@@ -68,14 +75,58 @@
             android:textSize="18sp">
         </TextView>
 
-        <TextView
+        <EditText
             android:id="@+id/details_location_restaurant"
+            android:focusableInTouchMode="false"
+            android:background="?android:attr/colorBackground"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="14sp">
+        </EditText>
 
-        </TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/google_font_normal"
+                android:src="@drawable/ic_baseline_delete_forever_24"
+                android:layout_margin="15dp"
+                android:backgroundTint="#e03a19"
+                android:id="@+id/fab_delete">
+            </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/google_font_normal"
+                android:src="@drawable/ic_baseline_save_24"
+                android:layout_margin="15dp"
+                android:backgroundTint="#1e9e29"
+                android:id="@+id/fab_save">
+            </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/google_font_normal"
+                android:src="@drawable/ic_baseline_edit_24"
+                android:layout_margin="15dp"
+                android:backgroundTint="#1f92cc"
+                android:id="@+id/fab_edit">
+            </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+
+
+        </LinearLayout>
+
 
     </LinearLayout>
-
 </ScrollView>
