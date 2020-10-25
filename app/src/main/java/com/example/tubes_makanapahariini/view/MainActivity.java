@@ -19,20 +19,19 @@ import com.example.tubes_makanapahariini.R;
 import com.example.tubes_makanapahariini.databinding.ActivityMainBinding;
 import com.example.tubes_makanapahariini.presenter.MainActivityPresenter;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, FragmentListener, AdapterView.OnItemClickListener {
+public class MainActivity extends AppCompatActivity implements FragmentListener {
     SharedPreferences sp;
     SharedPreferences.Editor spEditor;
     private Toolbar toolbar;
-    private MainFragment mainFragment;
-    private FragmentManager fragmentManager;
     private DrawerLayout drawer;
     private ActivityMainBinding bind;
+    private FragmentManager fragmentManager;
+    private MainFragment mainFragment;
+    private SearchFragment searchFragment;
     private MainMenuFragment mainMenu;
+    private AddNewMenuFragment addNewMenuFragment;
     private MenuDetailsFragment menuDetailsFragment;
     private SettingsFragment settingsFragment;
-    private SearchFragment searchFragment;
-    private AddNewMenuFragment addNewMenuFragment;
-    private MainActivityPresenter map;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,33 +47,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(view);
         this.setSupportActionBar(this.bind.toolbar);
 
-        //SOON TERMINATED DO NOT DELETE
         this.toolbar = findViewById(R.id.toolbar);
         this.drawer = findViewById(R.id.drawer_layout);
-        //ENDS HERE
 
         this.mainFragment = MainFragment.newInstance();
-        this.mainMenu = MainMenuFragment.newInstance();
-        this.settingsFragment = SettingsFragment.newInstance();
         this.searchFragment = SearchFragment.newInstance();
-        this.addNewMenuFragment = AddNewMenuFragment.newInstance();
+        this.mainMenu = MainMenuFragment.newInstance();
         this.menuDetailsFragment = MenuDetailsFragment.newInstance(0);
+        this.addNewMenuFragment = AddNewMenuFragment.newInstance();
+        this.settingsFragment = SettingsFragment.newInstance();
         this.fragmentManager = this.getSupportFragmentManager();
 
         ActionBarDrawerToggle abdt = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.open_drawer, R.string.close_drawer);
         drawer.addDrawerListener(abdt);
         abdt.syncState();
 
-        //this.map = new MainActivityPresenter();
-
         changePage(1);
     }
 
     @Override
     public void changeTheme(int theme) {
-        if (theme == 0) {
-            Utils.changeToTheme(this, Utils.THEME_UNSET);
-        }
         if (theme == 1) {
             Utils.changeToTheme(this, Utils.THEME_LIGHT);
         }
@@ -82,8 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Utils.changeToTheme(this, Utils.THEME_DARK);
         }
         else {
-            Log.d("Debug", "Theme Error!");
-            Utils.changeToTheme(this, Utils.THEME_LIGHT);
+            Utils.changeToTheme(this, Utils.THEME_UNSET);
         }
     }
 
@@ -109,6 +100,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             ft.replace(R.id.fragment_container, this.menuDetailsFragment).addToBackStack(null);
         }
         ft.commit();
+
         this.bind.drawerLayout.closeDrawers();
         InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(this.bind.drawerLayout.getWindowToken(), 0);
@@ -122,22 +114,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void changeMenuId(int id){
+    public void changeMenuId(int id) {
         this.menuDetailsFragment = MenuDetailsFragment.newInstance(id);
-    }
-
-    @Override
-    public void showMessage(String result) {
-        //What is this for again?
-    }
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-    }
-
-    @Override
-    public void onClick(View v) {
-
     }
 }

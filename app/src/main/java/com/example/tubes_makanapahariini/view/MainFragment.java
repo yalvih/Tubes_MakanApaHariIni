@@ -1,10 +1,9 @@
 package com.example.tubes_makanapahariini.view;
 
-//MAIN PAGE FRAGMENT
+// Main page
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,41 +11,40 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.concurrent.ThreadLocalRandom;
-
 import androidx.fragment.app.Fragment;
 
 import com.example.tubes_makanapahariini.DBHandler;
 import com.example.tubes_makanapahariini.R;
 import com.example.tubes_makanapahariini.presenter.MainActivityPresenter;
-import com.example.tubes_makanapahariini.presenter.MenuDetailPresenter;
 
 public class MainFragment extends Fragment implements ViewGroup.OnClickListener {
-    TextView caption;
-    Button randomize;
     DBHandler dbHandler;
     FragmentListener fragmentListener;
     MainActivityPresenter mainActivityPresenter;
+    TextView caption;
+    Button randomize;
     Toast toast;
 
     public MainFragment() { }
-
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_main, container, false);
-        this.caption = view.findViewById(R.id.main_text);
-        this.randomize = view.findViewById(R.id.main_search);
-        this.dbHandler = new DBHandler(this.getActivity());
-        this.randomize.setOnClickListener(this);
-
-        this.mainActivityPresenter = new MainActivityPresenter(dbHandler);
-        return view;
-    }
 
     public static MainFragment newInstance() {
         MainFragment fragment = new MainFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
+    }
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
+
+        this.dbHandler = new DBHandler(this.getActivity());
+        this.mainActivityPresenter = new MainActivityPresenter(dbHandler);
+
+        this.caption = view.findViewById(R.id.main_text);
+        this.randomize = view.findViewById(R.id.main_search);
+        this.randomize.setOnClickListener(this);
+
+        return view;
     }
 
     @Override
@@ -72,7 +70,7 @@ public class MainFragment extends Fragment implements ViewGroup.OnClickListener 
             this.fragmentListener = (FragmentListener) context;
         }
         else {
-            throw new ClassCastException(context.toString() + " must implement FragmentListener");
+            throw new ClassCastException(context.toString() + " must implement FragmentListener!");
         }
     }
 }

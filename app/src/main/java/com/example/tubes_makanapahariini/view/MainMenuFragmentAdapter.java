@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.tubes_makanapahariini.R;
@@ -24,9 +23,7 @@ public class MainMenuFragmentAdapter extends BaseAdapter {
     }
 
     public void updateList(List<Food> newList) {
-
         this.listItem = newList;
-//        this.updateList(newList);
         this.notifyDataSetChanged();
     }
 
@@ -48,24 +45,25 @@ public class MainMenuFragmentAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup parent) {
         view = LayoutInflater.from(this.fragment).inflate(R.layout.food_list_strings, parent , false);
+
         ViewHolder viewHolder = new ViewHolder(view);
         Food currentFood = (Food)this.getItem(i);
         viewHolder.updateView(currentFood);
         view.setTag(viewHolder);
+
         return view;
     }
 
-    private class ViewHolder{
+    private class ViewHolder {
         protected TextView title;
         protected TextView details;
-        protected int i;
 
         public ViewHolder(View view) {
             this.title = view.findViewById(R.id.list_item_string);
             this.details = view.findViewById(R.id.list_item_string_detail);
         }
 
-        public void updateView(final Food food){
+        public void updateView(final Food food) {
             this.title.setText(food.getTitle());
             this.details.setText(food.getDescription());
         }

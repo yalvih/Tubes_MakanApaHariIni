@@ -21,13 +21,13 @@ import java.util.List;
 
 //SEACRH FRAGMENT
 
-public class SearchFragment extends Fragment implements AdapterView.OnItemClickListener, SearchPresenter.ISearchPresenter, ViewGroup.OnClickListener {
-    SearchView search;
-    ListView list_view;
-    SearchFragmentAdapter searchFragmentAdapter;
-    SearchPresenter searchPresenter;
-    FragmentListener fragmentListener;
+public class SearchFragment extends Fragment implements AdapterView.OnItemClickListener, SearchPresenter.ISearchPresenter {
     DBHandler dbHandler;
+    FragmentListener fragmentListener;
+    SearchPresenter searchPresenter;
+    SearchFragmentAdapter searchFragmentAdapter;
+    ListView list_view;
+    SearchView search;
 
     public SearchFragment(){}
 
@@ -40,6 +40,7 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemClickL
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.search_fragment, container, false);
+
         this.dbHandler = new DBHandler(this.getContext());
         this.searchPresenter = new SearchPresenter(this, this.dbHandler);
         this.search = view.findViewById(R.id.search);
@@ -73,7 +74,7 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemClickL
             this.fragmentListener = (FragmentListener) context;
         }
         else {
-            throw new ClassCastException(context.toString() + " must implement FragmentListener");
+            throw new ClassCastException(context.toString() + " must implement FragmentListener!");
         }
     }
 
@@ -81,11 +82,6 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemClickL
     public void UpdateList(List<Food> data) {
         searchFragmentAdapter.updateList(data);
         searchFragmentAdapter.notifyDataSetChanged();
-    }
-
-    @Override
-    public void onClick(View v) {
-
     }
 
     @Override

@@ -18,15 +18,15 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
-//MENU LIST PAGE WITH EDIT BUTTON
+// Menu list fragment
 
 public class MainMenuFragment extends Fragment implements AdapterView.OnItemClickListener, MainMenuPresenter.IMainMenuActivity, ViewGroup.OnClickListener{
-    ListView listView;
+    DBHandler dbHandler;
     FragmentListener fragmentListener;
     MainMenuPresenter mainMenuPresenter;
-    FloatingActionButton fab;
     MainMenuFragmentAdapter frag;
-    DBHandler dbHandler;
+    ListView listView;
+    FloatingActionButton fab;
 
     public MainMenuFragment() { }
 
@@ -39,17 +39,20 @@ public class MainMenuFragment extends Fragment implements AdapterView.OnItemClic
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.main_menu_fragment, container, false);
+
         this.listView = view.findViewById(R.id.list_foods);
         this.dbHandler = new DBHandler(this.getActivity());
         this.fab = view.findViewById(R.id.fab1);
         this.fab.setOnClickListener(this);
+
         this.mainMenuPresenter = new MainMenuPresenter(this, this.dbHandler);
 
         this.frag = new MainMenuFragmentAdapter(this.getActivity());
         this.listView.setAdapter(this.frag);
         this.listView.setOnItemClickListener(this);
-//        this.listView.setOnClickListener(this);
+
         mainMenuPresenter.loadData();
+
         return view;
     }
 
@@ -60,14 +63,13 @@ public class MainMenuFragment extends Fragment implements AdapterView.OnItemClic
             this.fragmentListener = (FragmentListener) context;
         }
         else {
-            throw new ClassCastException(context.toString() + " must implement FragmentListener");
+            throw new ClassCastException(context.toString() + " must implement FragmentListener!");
         }
     }
 
-    //LATER USED FOR BUTTON
     @Override
     public void onClick(View v) {
-        if(v == this.fab){
+        if(v == this.fab) {
             this.fragmentListener.changePage(5);
         }
     }

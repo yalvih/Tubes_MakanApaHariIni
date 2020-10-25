@@ -22,13 +22,13 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.List;
 
 public class MenuDetailsFragment extends Fragment implements View.OnClickListener, MenuDetailPresenter.IMenuDetailActivity{
+    DBHandler dbHandler;
     FragmentListener fragmentListener;
     MenuDetailPresenter menuDetailPresenter;
-    FloatingActionButton fab_save, fab_edit, fab_delete;
-    DBHandler dbHandler;
-    Toast toast;
     int id;
     EditText tvTitle,tvDescription, tvIngredients, tvNameRestaurant, tvLocateRestaurant;
+    FloatingActionButton fab_save, fab_edit, fab_delete;
+    Toast toast;
 
     public MenuDetailsFragment() { }
 
@@ -70,7 +70,7 @@ public class MenuDetailsFragment extends Fragment implements View.OnClickListene
             this.fragmentListener = (FragmentListener) context;
         }
         else {
-            throw new ClassCastException(context.toString() + " must implement FragmentListener");
+            throw new ClassCastException(context.toString() + " must implement FragmentListener!");
         }
     }
 
@@ -82,10 +82,11 @@ public class MenuDetailsFragment extends Fragment implements View.OnClickListene
             this.tvIngredients.setFocusableInTouchMode(true);
             this.tvNameRestaurant.setFocusableInTouchMode(true);
             this.tvLocateRestaurant.setFocusableInTouchMode(true);
-            this.toast = Toast.makeText(this.getActivity(),"You Can Edit Now",Toast.LENGTH_SHORT);
+
+            this.toast = Toast.makeText(this.getActivity(),"Data menu sekarang bisa diedit.",Toast.LENGTH_SHORT);
             this.toast.show();
         }
-        if(v == this.fab_save){
+        if (v == this.fab_save) {
             Food food = new Food();
             food.setId(this.id);
             food.setTitle(tvTitle.getText().toString());
@@ -96,10 +97,10 @@ public class MenuDetailsFragment extends Fragment implements View.OnClickListene
             this.menuDetailPresenter.saveData(food);
             this.fragmentListener.changePage(3);
 
-            this.toast = Toast.makeText(this.getActivity(),"Data has been updated", Toast.LENGTH_SHORT);
+            this.toast = Toast.makeText(this.getActivity(),"Data menu telah diupdate.", Toast.LENGTH_SHORT);
             this.toast.show();
         }
-        if (v == this.fab_delete ){
+        if (v == this.fab_delete) {
             Food food = new Food();
             food.setId(this.id);
             food.setTitle(tvTitle.getText().toString());
@@ -110,7 +111,7 @@ public class MenuDetailsFragment extends Fragment implements View.OnClickListene
             this.menuDetailPresenter.deleteData(food);
             this.fragmentListener.changePage(3);
 
-            this.toast = Toast.makeText(this.getActivity(),"Data has been deleted", Toast.LENGTH_SHORT);
+            this.toast = Toast.makeText(this.getActivity(),"Menu telah dihapus.", Toast.LENGTH_SHORT);
             this.toast.show();
         }
     }

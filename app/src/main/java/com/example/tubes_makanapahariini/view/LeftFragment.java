@@ -1,6 +1,6 @@
 package com.example.tubes_makanapahariini.view;
 
-//Left drawer
+// Left drawer
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,7 +13,6 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.example.tubes_makanapahariini.R;
-import com.example.tubes_makanapahariini.view.FragmentListener;
 
 public class LeftFragment extends Fragment implements View.OnClickListener {
     private FragmentListener fragmentListener;
@@ -58,7 +57,7 @@ public class LeftFragment extends Fragment implements View.OnClickListener {
             this.fragmentListener = (FragmentListener) context;
         }
         else {
-            throw new ClassCastException(context.toString() + " must implement FragmentListener");
+            throw new ClassCastException(context.toString() + " must implement FragmentListener!");
         }
     }
 
