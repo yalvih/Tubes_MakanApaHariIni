@@ -30,7 +30,7 @@
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:background="@color/colorPrimary"
+            android:background="#e83333"
             android:text="@string/settings_button_delete_all"
             android:fontFamily="@font/google_font_normal"
             android:textColor="@android:color/white"/>
