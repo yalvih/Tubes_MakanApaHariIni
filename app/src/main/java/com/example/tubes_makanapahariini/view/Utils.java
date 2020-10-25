@@ -10,6 +10,8 @@ import com.example.tubes_makanapahariini.R;
 
 import static android.content.Context.MODE_PRIVATE;
 
+// Helper class for themes
+
 public class Utils {
     private static int themeCode;
     public final static int THEME_UNSET = 0;

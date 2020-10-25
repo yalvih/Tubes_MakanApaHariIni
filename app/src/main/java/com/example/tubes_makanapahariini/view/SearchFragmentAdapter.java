@@ -45,6 +45,12 @@ public class SearchFragmentAdapter extends BaseAdapter {
     public View getView(int i, View itemView, ViewGroup parent) {
         itemView = LayoutInflater.from(this.fragment).inflate(R.layout.food_list_strings, null);
 
+        ViewHolder viewHolder = new ViewHolder(itemView);
+        Food currentFood = (Food)this.getItem(i);
+        viewHolder.updateView(currentFood);
+        itemView.setTag(viewHolder);
+
+        /*
         Food currentFood = (Food)this.getItem(i);
         // Title
         TextView tvName = itemView.findViewById(R.id.list_item_string);
@@ -52,6 +58,7 @@ public class SearchFragmentAdapter extends BaseAdapter {
         // Description
         TextView tvDetail = itemView.findViewById(R.id.list_item_string_detail);
         tvDetail.setText(currentFood.getDescription());
+         */
 
         return itemView;
     }
@@ -59,12 +66,10 @@ public class SearchFragmentAdapter extends BaseAdapter {
     private class ViewHolder {
         protected TextView title;
         protected TextView details;
-        protected int i;
 
-        public ViewHolder(View view, int i) {
+        public ViewHolder(View view) {
             this.title = view.findViewById(R.id.list_item_string);
             this.details = view.findViewById(R.id.list_item_string_detail);
-            this.i = i;
         }
 
         public void updateView(final Food food){

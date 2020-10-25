@@ -1,7 +1,5 @@
 package com.example.tubes_makanapahariini.view;
 
-// Add new menu
-
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,6 +14,8 @@ import com.example.tubes_makanapahariini.DBHandler;
 import com.example.tubes_makanapahariini.R;
 import com.example.tubes_makanapahariini.model.Food;
 import com.example.tubes_makanapahariini.presenter.AddMenuPresenter;
+
+// Add new menu
 
 public class AddNewMenuFragment extends Fragment implements View.OnClickListener, AddMenuPresenter.INewMenu {
     DBHandler dbHandler;

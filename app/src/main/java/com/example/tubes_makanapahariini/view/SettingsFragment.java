@@ -1,7 +1,5 @@
 package com.example.tubes_makanapahariini.view;
 
-//SETTINGS FRAGMENT
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -19,15 +17,17 @@ import com.example.tubes_makanapahariini.DBHandler;
 import com.example.tubes_makanapahariini.R;
 import static android.content.Context.MODE_PRIVATE;
 
+// Settings
+
 public class SettingsFragment extends Fragment implements ViewGroup.OnClickListener {
+    DBHandler dbHandler;
+    FragmentListener fragmentListener;
     SharedPreferences sp;
     SharedPreferences.Editor spEditor;
     int darkTheme;
     Button btnDarkTheme;
     Button btnDeleteAll;
-    FragmentListener fragmentListener;
-    public DBHandler dbHandler;
-    private Toast toast;
+    Toast toast;
 
     public SettingsFragment() { }
 
@@ -65,7 +65,7 @@ public class SettingsFragment extends Fragment implements ViewGroup.OnClickListe
             this.fragmentListener = (FragmentListener) context;
         }
         else {
-            throw new ClassCastException(context.toString() + " must implement FragmentListener");
+            throw new ClassCastException(context.toString() + " must implement FragmentListener!");
         }
     }
 

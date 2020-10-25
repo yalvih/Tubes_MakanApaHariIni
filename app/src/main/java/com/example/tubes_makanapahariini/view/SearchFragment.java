@@ -19,7 +19,7 @@ import com.example.tubes_makanapahariini.presenter.SearchPresenter;
 
 import java.util.List;
 
-//SEACRH FRAGMENT
+// Search fragment
 
 public class SearchFragment extends Fragment implements AdapterView.OnItemClickListener, SearchPresenter.ISearchPresenter {
     DBHandler dbHandler;

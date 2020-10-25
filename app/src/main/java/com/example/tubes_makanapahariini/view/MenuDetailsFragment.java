@@ -21,6 +21,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
+// Menu details fragment
+
 public class MenuDetailsFragment extends Fragment implements View.OnClickListener, MenuDetailPresenter.IMenuDetailActivity{
     DBHandler dbHandler;
     FragmentListener fragmentListener;

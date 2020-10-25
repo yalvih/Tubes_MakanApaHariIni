@@ -1,7 +1,5 @@
 package com.example.tubes_makanapahariini.view;
 
-// Left drawer
-
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +11,8 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.example.tubes_makanapahariini.R;
+
+// Left drawer
 
 public class LeftFragment extends Fragment implements View.OnClickListener {
     private FragmentListener fragmentListener;
