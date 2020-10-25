@@ -3,19 +3,22 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="20dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
             <EditText
                 android:id="@+id/details_title"
@@ -28,8 +31,8 @@
                 android:maxLength="40"
                 android:gravity="center"
                 android:fontFamily="@font/google_font_normal"
-                android:textSize="20sp">
-            </EditText>
+                android:textSize="20sp"
+                />
 
         </LinearLayout>
 
@@ -38,7 +41,8 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="10dp"
+            >
 
             <EditText
                 android:id="@+id/details_description"
@@ -47,14 +51,14 @@
                 android:background="?android:attr/colorBackground"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="14sp">
-            </EditText>
+                android:textSize="14sp"
+                />
 
             <TextView
                 android:layout_width="match_parent"
                 android:fontFamily="@font/google_font_normal"
-                android:layout_height="20dp">
-            </TextView>
+                android:layout_height="20dp"
+                />
 
         </LinearLayout>
 
@@ -63,15 +67,16 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="10dp"
+            >
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/google_font_normal"
-                android:text="Bahan"
-                android:textSize="18sp">
-            </TextView>
+                android:text="@string/ingredients"
+                android:textSize="18sp"
+                />
 
             <EditText
                 android:id="@+id/details_ingredients"
@@ -80,8 +85,8 @@
                 android:background="?android:attr/colorBackground"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="14sp">
-            </EditText>
+                android:textSize="14sp"
+                />
 
         </LinearLayout>
 
@@ -90,15 +95,16 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="10dp"
+            >
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nama Restoran"
+                android:text="@string/restaurant_name"
                 android:fontFamily="@font/google_font_normal"
-                android:textSize="18sp">
-            </TextView>
+                android:textSize="18sp"
+                />
 
             <EditText
                 android:id="@+id/details_name_restaurant"
@@ -107,8 +113,8 @@
                 android:layout_width="match_parent"
                 android:fontFamily="@font/google_font_normal"
                 android:layout_height="wrap_content"
-                android:textSize="14sp">
-            </EditText>
+                android:textSize="14sp"
+                />
 
         </LinearLayout>
 
@@ -117,15 +123,16 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="10dp"
+            >
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lokasi Restoran"
+                android:text="@string/restaurant_location"
                 android:fontFamily="@font/google_font_normal"
-                android:textSize="18sp">
-            </TextView>
+                android:textSize="18sp"
+                />
 
             <EditText
                 android:id="@+id/details_location_restaurant"
@@ -134,8 +141,8 @@
                 android:background="?android:attr/colorBackground"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="14sp">
-            </EditText>
+                android:textSize="14sp"
+                />
 
         </LinearLayout>
 
@@ -154,8 +161,8 @@
                 android:src="@drawable/ic_baseline_delete_forever_24"
                 android:layout_margin="15dp"
                 android:backgroundTint="#e03a19"
-                android:id="@+id/fab_delete">
-            </com.google.android.material.floatingactionbutton.FloatingActionButton>
+                android:id="@+id/fab_delete"
+                />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:layout_width="wrap_content"
@@ -165,8 +172,8 @@
                 android:src="@drawable/ic_baseline_save_24"
                 android:layout_margin="15dp"
                 android:backgroundTint="#1e9e29"
-                android:id="@+id/fab_save">
-            </com.google.android.material.floatingactionbutton.FloatingActionButton>
+                android:id="@+id/fab_save"
+                />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:layout_width="wrap_content"
@@ -176,10 +183,8 @@
                 android:src="@drawable/ic_baseline_edit_24"
                 android:layout_margin="15dp"
                 android:backgroundTint="#1f92cc"
-                android:id="@+id/fab_edit">
-            </com.google.android.material.floatingactionbutton.FloatingActionButton>
-
-
+                android:id="@+id/fab_edit"
+                />
 
         </LinearLayout>
 

@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginBottom="10dp">
+        android:layout_marginBottom="10dp"
+        >
 
         <TextView
             android:id="@+id/settings_text_delete_all"
@@ -33,14 +34,16 @@
             android:background="#e83333"
             android:text="@string/settings_button_delete_all"
             android:fontFamily="@font/google_font_normal"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white"
+            />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        >
 
         <TextView
             android:id="@+id/settings_text_theme"
@@ -60,7 +63,8 @@
             android:layout_gravity="right"
             android:background="@color/colorPrimary"
             android:fontFamily="@font/google_font_normal"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white"
+            />
 
     </LinearLayout>
 

@@ -15,23 +15,21 @@
         android:textSize="20sp"
         android:fontFamily="@font/google_font_normal"
         android:padding="10dp"
-        >
-
-    </TextView>
+        />
 
     <SearchView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/google_font_normal"
-        android:id="@+id/search">
-    </SearchView>
+        android:id="@+id/search"
+        />
 
     <ListView
         android:id="@+id/list_foods"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:fontFamily="@font/google_font_normal"
-        android:layout_weight="1">
-    </ListView>
+        android:layout_weight="1"
+        />
 
 </LinearLayout>

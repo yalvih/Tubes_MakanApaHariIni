@@ -10,7 +10,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,8 +25,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_baseline_home_24"
                 android:padding="18dp"
-                >
-            </ImageView>
+                />
 
             <TextView
                 android:id="@+id/drawer_home"
@@ -39,20 +39,22 @@
                 android:background="?attr/rippleEffectTheme"
                 android:text="@string/left_drawer_home"
                 />
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            >
 
             <ImageView
                 android:id="@+id/drawer_icon_search"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_baseline_search_24"
-                android:padding="18dp">
-            </ImageView>
+                android:padding="18dp"
+                />
 
             <TextView
                 android:id="@+id/drawer_search"
@@ -66,20 +68,22 @@
                 android:background="?attr/rippleEffectTheme"
                 android:text="@string/left_drawer_search"
                 />
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            >
 
             <ImageView
                 android:id="@+id/drawer_icon_menu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_baseline_restaurant_menu_24"
-                android:padding="18dp">
-            </ImageView>
+                android:padding="18dp"
+                />
 
             <TextView
                 android:id="@+id/drawer_menu"
@@ -93,20 +97,22 @@
                 android:background="?attr/rippleEffectTheme"
                 android:text="@string/left_drawer_menu"
                 />
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            >
 
             <ImageView
                 android:id="@+id/drawer_icon_setting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_baseline_settings_24"
-                android:padding="18dp">
-            </ImageView>
+                android:padding="18dp"
+                />
 
             <TextView
                 android:id="@+id/drawer_setting"
@@ -120,6 +126,7 @@
                 android:background="?attr/rippleEffectTheme"
                 android:text="@string/left_drawer_settings"
                 />
+
         </LinearLayout>
 
         <LinearLayout
@@ -132,9 +139,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_baseline_exit_to_app_24"
-                android:padding="18dp">
-
-            </ImageView>
+                android:padding="18dp"
+                />
 
             <TextView
                 android:id="@+id/drawer_exit"
@@ -148,7 +154,9 @@
                 android:background="?attr/rippleEffectTheme"
                 android:text="@string/left_drawer_exit"
                 />
+
         </LinearLayout>
 
     </LinearLayout>
+
 </FrameLayout>
