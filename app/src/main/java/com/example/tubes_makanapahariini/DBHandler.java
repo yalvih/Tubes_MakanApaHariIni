@@ -46,14 +46,14 @@ public class DBHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addRecord(Food food){
+    public void addRecord(Food food) {
         SQLiteDatabase db  = getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, food.getTitle());
         values.put(KEY_DESC, food.getDescription());
         values.put(KEY_INGREDIENTS, food.getIngredients());
-        values.put(KEY_LOCATION_RESTAURANT, food.getLocate_restaurant());
+        values.put(KEY_LOCATION_RESTAURANT, food.getRestaurant_location());
         values.put(KEY_NAME_RESTAURANT, food.getName_restaurant());
 
         db.insert(TABLE_FOOD, null, values);
@@ -74,7 +74,7 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     public List<Food> getAllRecord() {
-        List<Food> foodList = new ArrayList<Food>();
+        List<Food> foodList = new ArrayList<>();
         // Select all query
         String selectQuery = "SELECT * FROM " + TABLE_FOOD;
 
@@ -88,19 +88,19 @@ public class DBHandler extends SQLiteOpenHelper {
                 food.setTitle(cursor.getString(1));
                 food.setDescription(cursor.getString(2));
                 food.setIngredients(cursor.getString(3));
-                food.setLocate_restaurant(cursor.getString(4));
-                food.setName_restaurant(cursor.getString(5));
+                food.setRestaurant_location(cursor.getString(4));
+                food.setRestaurant_name(cursor.getString(5));
 
                 foodList.add(food);
             } while (cursor.moveToNext());
         }
 
-        // return contact list
+        // Return contact list
         return foodList;
     }
 
     public List<Food> getSearchResults(String query) {
-        List<Food> foodList = new ArrayList<Food>();
+        List<Food> foodList = new ArrayList<>();
         StringBuilder searchQuery = new StringBuilder("SELECT * FROM " + TABLE_FOOD);;
         // Split keywords if query contains whitespace
         String[] keywords = query.split(" ");
@@ -122,7 +122,6 @@ public class DBHandler extends SQLiteOpenHelper {
         }
         searchQuery.append("' ORDER BY " + KEY_ID);
 
-        Log.d("DBQuery", searchQuery.toString());
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(searchQuery.toString(), null);
 
@@ -134,25 +133,26 @@ public class DBHandler extends SQLiteOpenHelper {
                 food.setTitle(cursor.getString(1));
                 food.setDescription(cursor.getString(2));
                 food.setIngredients(cursor.getString(3));
-                food.setLocate_restaurant(cursor.getString(4));
-                food.setName_restaurant(cursor.getString(5));
+                food.setRestaurant_location(cursor.getString(4));
+                food.setRestaurant_name(cursor.getString(5));
 
                 foodList.add(food);
             } while (cursor.moveToNext());
         }
 
-        // return contact list
+        // Return contact list
         return foodList;
     }
 
     public int getFoodCount() {
-        String countQuery = "SELECT  * FROM " + TABLE_FOOD;
+        String countQuery = "SELECT * FROM " + TABLE_FOOD;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
+        int count = cursor.getCount();
         cursor.close();
 
-        // return count
-        return cursor.getCount();
+        // Return number of food in database
+        return count;
     }
 
     public int updateFood(Food contact) {
@@ -162,12 +162,19 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(KEY_NAME, contact.getTitle());
         values.put(KEY_DESC, contact.getDescription());
         values.put(KEY_INGREDIENTS, contact.getIngredients());
-        values.put(KEY_LOCATION_RESTAURANT, contact.getLocate_restaurant());
+        values.put(KEY_LOCATION_RESTAURANT, contact.getRestaurant_location());
         values.put(KEY_NAME_RESTAURANT, contact.getName_restaurant());
 
         // updating row
         return db.update(TABLE_FOOD, values, KEY_ID + " = ?",
                 new String[] { String.valueOf(contact.getId()) });
+    }
+
+    public void deleteAllFood() {
+        String deleteQuery = "DELETE FROM " + TABLE_FOOD;
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL(deleteQuery);
+        db.close();
     }
 
     public void deleteModel(Food contact) {
@@ -176,5 +183,4 @@ public class DBHandler extends SQLiteOpenHelper {
                 new String[] { String.valueOf(contact.getId()) });
         db.close();
     }
-
 }

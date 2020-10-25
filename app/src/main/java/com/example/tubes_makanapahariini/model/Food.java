@@ -7,47 +7,51 @@ public class Food {
     private String title;
     private String description;
     private String ingredients;
-    private String locate_restaurant;
-    private String name_restaurant;
+    private String restaurantName;
+    private String restaurantLocation;
     public int id;
 
-    public Food(int id, String title, String description, String ingredients, String locate_restaurant, String name_restaurant) {
+    public Food(int id, String title, String description, String ingredients, String restaurantLocation, String restaurantName) {
         this.title = title;
         this.description = description;
         this.ingredients = ingredients;
-        this.locate_restaurant = locate_restaurant;
-        this.name_restaurant = name_restaurant;
+        this.restaurantName = restaurantName;
+        this.restaurantLocation = restaurantLocation;
         this.id = id;
     }
 
-    public Food(){}
+    public Food() { }
+
+    public int getId() {
+        return id;
+    }
 
     public String getTitle() {
         return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public String getLocate_restaurant() {
-        return locate_restaurant;
-    }
-
-    public void setLocate_restaurant(String locate_restaurant) {
-        this.locate_restaurant = locate_restaurant;
+    public String getIngredients() {
+        return ingredients;
     }
 
     public String getName_restaurant() {
-        return name_restaurant;
+        return restaurantName;
     }
 
-    public void setName_restaurant(String name_restaurant) {
-        this.name_restaurant = name_restaurant;
+    public String getRestaurant_location() {
+        return restaurantLocation;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public void setDescription(String description) {
@@ -58,15 +62,11 @@ public class Food {
         this.ingredients = ingredients;
     }
 
-    public String getIngredients() {
-        return ingredients;
+    public void setRestaurant_name(String name_restaurant) {
+        this.restaurantName = name_restaurant;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setRestaurant_location(String locate_restaurant) {
+        this.restaurantLocation = locate_restaurant;
     }
 }

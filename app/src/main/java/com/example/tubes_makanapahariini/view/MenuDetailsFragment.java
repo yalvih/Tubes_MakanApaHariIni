@@ -91,12 +91,12 @@ public class MenuDetailsFragment extends Fragment implements View.OnClickListene
             food.setTitle(tvTitle.getText().toString());
             food.setDescription(tvDescription.getText().toString());
             food.setIngredients(tvIngredients.getText().toString());
-            food.setName_restaurant(tvNameRestaurant.getText().toString());
-            food.setLocate_restaurant(tvLocateRestaurant.getText().toString());
+            food.setRestaurant_name(tvNameRestaurant.getText().toString());
+            food.setRestaurant_location(tvLocateRestaurant.getText().toString());
             this.menuDetailPresenter.saveData(food);
             this.fragmentListener.changePage(3);
 
-            this.toast = Toast.makeText(this.getActivity(),"Data has been updated",Toast.LENGTH_SHORT);
+            this.toast = Toast.makeText(this.getActivity(),"Data has been updated", Toast.LENGTH_SHORT);
             this.toast.show();
         }
         if(v == this.fab_delete){
@@ -105,12 +105,12 @@ public class MenuDetailsFragment extends Fragment implements View.OnClickListene
             food.setTitle(tvTitle.getText().toString());
             food.setDescription(tvDescription.getText().toString());
             food.setIngredients(tvIngredients.getText().toString());
-            food.setName_restaurant(tvNameRestaurant.getText().toString());
-            food.setLocate_restaurant(tvLocateRestaurant.getText().toString());
+            food.setRestaurant_name(tvNameRestaurant.getText().toString());
+            food.setRestaurant_location(tvLocateRestaurant.getText().toString());
             this.menuDetailPresenter.deleteData(food);
             this.fragmentListener.changePage(3);
 
-            this.toast = Toast.makeText(this.getActivity(),"Data has been deleted",Toast.LENGTH_SHORT);
+            this.toast = Toast.makeText(this.getActivity(),"Data has been deleted", Toast.LENGTH_SHORT);
             this.toast.show();
         }
     }
@@ -126,7 +126,7 @@ public class MenuDetailsFragment extends Fragment implements View.OnClickListene
         this.tvDescription.setText(item.getDescription());
         this.tvIngredients.setText(item.getIngredients());
         this.tvNameRestaurant.setText(item.getName_restaurant());
-        this.tvLocateRestaurant.setText(item.getLocate_restaurant());
+        this.tvLocateRestaurant.setText(item.getRestaurant_location());
     }
 }
 

@@ -23,7 +23,7 @@ import com.example.tubes_makanapahariini.presenter.MenuDetailPresenter;
 
 public class MainFragment extends Fragment implements ViewGroup.OnClickListener {
     TextView caption;
-    Button search;
+    Button randomize;
     DBHandler dbHandler;
     FragmentListener fragmentListener;
     MainActivityPresenter mainActivityPresenter;
@@ -34,9 +34,9 @@ public class MainFragment extends Fragment implements ViewGroup.OnClickListener 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         this.caption = view.findViewById(R.id.main_text);
-        this.search = view.findViewById(R.id.main_search);
+        this.randomize = view.findViewById(R.id.main_search);
         this.dbHandler = new DBHandler(this.getActivity());
-        this.search.setOnClickListener(this);
+        this.randomize.setOnClickListener(this);
 
         this.mainActivityPresenter = new MainActivityPresenter(dbHandler);
         return view;
@@ -51,7 +51,8 @@ public class MainFragment extends Fragment implements ViewGroup.OnClickListener 
 
     @Override
     public void onClick(View v) {
-        if (v == this.search) {
+        if (v == this.randomize) {
+            // Check whether database is empty - function won't run if it is
             boolean isEmpty = this.mainActivityPresenter.checkDBSize() == 0;
             if (isEmpty == false) {
                 this.fragmentListener.changeMenuId(this.mainActivityPresenter.openRandom());

@@ -11,6 +11,35 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/settings_text_delete_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:fontFamily="@font/google_font_normal"
+            android:text="@string/settings_text_delete_all"
+            android:textSize="16sp"
+            />
+
+        <Button
+            android:id="@+id/settings_button_delete_all"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@color/colorPrimary"
+            android:text="@string/settings_button_delete_all"
+            android:fontFamily="@font/google_font_normal"
+            android:textColor="@android:color/white"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <TextView
@@ -28,7 +57,6 @@
             android:id="@+id/settings_button_theme"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
             android:layout_gravity="right"
             android:background="@color/colorPrimary"
             android:fontFamily="@font/google_font_normal"

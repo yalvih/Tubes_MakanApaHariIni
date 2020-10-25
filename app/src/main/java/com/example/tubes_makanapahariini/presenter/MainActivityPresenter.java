@@ -23,6 +23,6 @@ public class MainActivityPresenter {
     }
 
     public int checkDBSize() {
-        return this.dbHandler.getAllRecord().size();
+        return this.dbHandler.getFoodCount();
     }
 }
