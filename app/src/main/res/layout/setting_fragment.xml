@@ -5,22 +5,36 @@
     android:layout_height="match_parent"
     android:layout_weight="1"
     android:orientation="vertical"
+    android:padding="20dp"
     >
 
-    <TextView
-        android:id="@+id/settings_text_theme"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/google_font_normal"
-        android:text="@string/settings_text_theme"
-        />
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/settings_button_theme"
-        android:layout_width="match_parent"
-        android:fontFamily="@font/google_font_normal"
-        android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/settings_text_theme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:fontFamily="@font/google_font_normal"
+            android:text="@string/settings_text_theme"
+            android:textSize="16sp"
+            />
 
-        />
+        <Button
+            android:id="@+id/settings_button_theme"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="right"
+            android:background="@color/colorPrimary"
+            android:fontFamily="@font/google_font_normal" />
+
+    </LinearLayout>
+
+
 
 </LinearLayout>

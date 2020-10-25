@@ -11,84 +11,140 @@
         android:padding="20dp"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/details_title"
-            android:focusableInTouchMode="false"
-            android:background="?android:attr/colorBackground"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="18dp"
-            android:gravity="center"
-            android:textSize="20sp">
-        </EditText>
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/details_description"
-            android:focusableInTouchMode="false"
-            android:background="?android:attr/colorBackground"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="14sp">
-        </EditText>
+            <EditText
+                android:id="@+id/details_title"
+                android:focusableInTouchMode="false"
+                android:background="?android:attr/colorBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="18dp"
+                android:maxLength="40"
+                android:gravity="center"
+                android:fontFamily="@font/google_font_normal"
+                android:textSize="20sp">
+            </EditText>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="20dp">
-        </TextView>
+        </LinearLayout>
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Bahan:"
-            android:textSize="18sp">
-        </TextView>
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="10dp">
 
-        <EditText
-            android:id="@+id/details_ingredients"
-            android:focusableInTouchMode="false"
-            android:background="?android:attr/colorBackground"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="14sp">
-        </EditText>
+            <EditText
+                android:id="@+id/details_description"
+                android:focusableInTouchMode="false"
+                android:fontFamily="@font/google_font_normal"
+                android:background="?android:attr/colorBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp">
+            </EditText>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nama Restoran"
-            android:textSize="18sp">
-        </TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:fontFamily="@font/google_font_normal"
+                android:layout_height="20dp">
+            </TextView>
 
-        <EditText
-            android:id="@+id/details_name_restaurant"
-            android:focusableInTouchMode="false"
-            android:background="?android:attr/colorBackground"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="14sp">
-        </EditText>
+        </LinearLayout>
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Lokasi Restoran:"
-            android:textSize="18sp">
-        </TextView>
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="10dp">
 
-        <EditText
-            android:id="@+id/details_location_restaurant"
-            android:focusableInTouchMode="false"
-            android:background="?android:attr/colorBackground"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/google_font_normal"
+                android:text="Bahan"
+                android:textSize="18sp">
+            </TextView>
+
+            <EditText
+                android:id="@+id/details_ingredients"
+                android:focusableInTouchMode="false"
+                android:fontFamily="@font/google_font_normal"
+                android:background="?android:attr/colorBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp">
+            </EditText>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="14sp">
-        </EditText>
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nama Restoran"
+                android:fontFamily="@font/google_font_normal"
+                android:textSize="18sp">
+            </TextView>
+
+            <EditText
+                android:id="@+id/details_name_restaurant"
+                android:focusableInTouchMode="false"
+                android:background="?android:attr/colorBackground"
+                android:layout_width="match_parent"
+                android:fontFamily="@font/google_font_normal"
+                android:layout_height="wrap_content"
+                android:textSize="14sp">
+            </EditText>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lokasi Restoran"
+                android:fontFamily="@font/google_font_normal"
+                android:textSize="18sp">
+            </TextView>
+
+            <EditText
+                android:id="@+id/details_location_restaurant"
+                android:focusableInTouchMode="false"
+                android:fontFamily="@font/google_font_normal"
+                android:background="?android:attr/colorBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp">
+            </EditText>
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center"
+            android:padding="10dp">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:layout_width="wrap_content"
@@ -127,6 +183,6 @@
 
         </LinearLayout>
 
-
     </LinearLayout>
+
 </ScrollView>

@@ -2,22 +2,16 @@ package com.example.tubes_makanapahariini.view;
 
 //SETTINGS FRAGMENT
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.fragment.app.Fragment;
-
 import com.example.tubes_makanapahariini.R;
-import com.example.tubes_makanapahariini.databinding.ActivityMainBinding;
-
 import static android.content.Context.MODE_PRIVATE;
 
 public class SettingsFragment extends Fragment implements ViewGroup.OnClickListener {
@@ -26,7 +20,6 @@ public class SettingsFragment extends Fragment implements ViewGroup.OnClickListe
     int darkTheme;
     TextView labelDarkTheme;
     Button btnDarkTheme;
-    ActivityMainBinding bind;
     FragmentListener fragmentListener;
 
     public SettingsFragment() { }

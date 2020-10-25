@@ -70,6 +70,7 @@ public class AddNewMenuFragment extends Fragment implements View.OnClickListener
                 add_locate_restaurant.getText().toString(),
                 add_name_restaurant.getText().toString());
         this.addMenuPresenter.AddNew(food,this.getActivity());
+        this.fragmentListener.changePage(3);
     }
 
     @Override

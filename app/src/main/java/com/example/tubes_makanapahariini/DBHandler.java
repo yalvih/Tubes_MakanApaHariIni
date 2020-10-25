@@ -16,9 +16,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     protected static final int database_version = 1;
     protected static final String database_name = "Food_List";
-
     private static final String TABLE_FOOD = "Food_Table";
-
     private static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
     private static final String KEY_DESC = "descripton";
@@ -30,7 +28,6 @@ public class DBHandler extends SQLiteOpenHelper {
         super(context, database_name, null, database_version);
     }
 
-    //Create table
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_FOOD + "("
@@ -43,7 +40,6 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL(CREATE_CONTACTS_TABLE);
     }
 
-    // on Upgrade database
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_FOOD);
@@ -77,7 +73,6 @@ public class DBHandler extends SQLiteOpenHelper {
         return food;
     }
 
-    // Get all records
     public List<Food> getAllRecord() {
         List<Food> foodList = new ArrayList<Food>();
         // Select all query
@@ -104,7 +99,6 @@ public class DBHandler extends SQLiteOpenHelper {
         return foodList;
     }
 
-    // Get search results
     public List<Food> getSearchResults(String query) {
         List<Food> foodList = new ArrayList<Food>();
         StringBuilder searchQuery = new StringBuilder("SELECT * FROM " + TABLE_FOOD);;
@@ -182,6 +176,5 @@ public class DBHandler extends SQLiteOpenHelper {
                 new String[] { String.valueOf(contact.getId()) });
         db.close();
     }
-
 
 }
