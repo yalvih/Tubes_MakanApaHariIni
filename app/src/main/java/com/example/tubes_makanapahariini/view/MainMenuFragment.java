@@ -79,11 +79,6 @@ public class MainMenuFragment extends Fragment implements AdapterView.OnItemClic
     }
 
     @Override
-    public void openAdd() {
-
-    }
-
-    @Override
     public void openDetails(int id) {
         this.fragmentListener.changeMenuId(id);
         this.fragmentListener.changePage(6);

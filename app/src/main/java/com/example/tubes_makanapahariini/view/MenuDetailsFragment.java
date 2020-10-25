@@ -99,7 +99,7 @@ public class MenuDetailsFragment extends Fragment implements View.OnClickListene
             this.toast = Toast.makeText(this.getActivity(),"Data has been updated", Toast.LENGTH_SHORT);
             this.toast.show();
         }
-        if(v == this.fab_delete){
+        if (v == this.fab_delete ){
             Food food = new Food();
             food.setId(this.id);
             food.setTitle(tvTitle.getText().toString());
@@ -113,11 +113,6 @@ public class MenuDetailsFragment extends Fragment implements View.OnClickListene
             this.toast = Toast.makeText(this.getActivity(),"Data has been deleted", Toast.LENGTH_SHORT);
             this.toast.show();
         }
-    }
-
-    @Override
-    public void UpdateData(List<Food> data) {
-
     }
 
     @Override

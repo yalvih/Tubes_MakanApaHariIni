@@ -4,10 +4,8 @@ import android.util.Log;
 
 import com.example.tubes_makanapahariini.DBHandler;
 import com.example.tubes_makanapahariini.model.Food;
-import java.util.concurrent.ThreadLocalRandom;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class MainMenuPresenter {
@@ -21,25 +19,17 @@ public class MainMenuPresenter {
         this.dbHandler = dbHandler;
     }
 
+    public interface IMainMenuActivity {
+        void UpdateList(List<Food> data);
+        void openDetails(int id);
+    }
+
     public void openDetails(int i) {
         int id = this.foods.get(i).getId();
         this.ui.openDetails(id);
     }
 
-    public interface IMainMenuActivity{
-        void UpdateList(List<Food> data);
-        void openAdd();
-        void openDetails(int id);
-    }
-
-    public void addNew(String title, String detail) {
-//        Food item = new Food(title, detail);
-//        this.foods.add(item);
-//        this.ui.UpdateList(this.foods);
-//        this.ui.resetAddForm();
-    }
-
-    public void loadData(){
+    public void loadData() {
         this.foods = dbHandler.getAllRecord();
         this.ui.UpdateList(this.foods);
     }

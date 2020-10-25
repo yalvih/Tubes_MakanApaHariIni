@@ -74,11 +74,6 @@ public class AddNewMenuFragment extends Fragment implements View.OnClickListener
     }
 
     @Override
-    public void changePage() {
-
-    }
-
-    @Override
     public void clearForm() {
         this.add_menu.setText("");
         this.add_detail.setText("");

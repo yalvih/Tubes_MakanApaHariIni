@@ -70,6 +70,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 cursor.getString(1), cursor.getString(2),
                 cursor.getString(3), cursor.getString(4),
                 cursor.getString(5));
+
         return food;
     }
 
@@ -165,7 +166,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(KEY_LOCATION_RESTAURANT, contact.getRestaurant_location());
         values.put(KEY_NAME_RESTAURANT, contact.getName_restaurant());
 
-        // updating row
+        // Update row
         return db.update(TABLE_FOOD, values, KEY_ID + " = ?",
                 new String[] { String.valueOf(contact.getId()) });
     }

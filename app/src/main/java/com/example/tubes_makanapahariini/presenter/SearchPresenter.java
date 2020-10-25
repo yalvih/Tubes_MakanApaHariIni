@@ -4,7 +4,6 @@ import com.example.tubes_makanapahariini.DBHandler;
 import com.example.tubes_makanapahariini.model.Food;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class SearchPresenter {
@@ -18,7 +17,7 @@ public class SearchPresenter {
         this.dbHandler = dbHandler;
     }
 
-    public interface ISearchPresenter{
+    public interface ISearchPresenter {
         void UpdateList(List<Food> data);
         void openDetails(int id);
     }
@@ -28,7 +27,7 @@ public class SearchPresenter {
         this.ui.openDetails(id);
     }
 
-    public void loadData(String query){
+    public void loadData(String query) {
         this.foods = dbHandler.getSearchResults(query);
         this.ui.UpdateList(this.foods);
     }

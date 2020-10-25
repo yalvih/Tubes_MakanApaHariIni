@@ -17,21 +17,14 @@ public class AddMenuPresenter {
     }
 
     public interface INewMenu {
-        void changePage();
         void clearForm();
     }
 
-    public void AddNew(Food food, Context context){
+    public void AddNew(Food food, Context context) {
         this.db.addRecord(food);
-        this.toast = Toast.makeText(context,"Menu Added",Toast.LENGTH_SHORT);
+        this.toast = Toast.makeText(context,"Menu telah ditambahkan", Toast.LENGTH_SHORT);
         this.toast.show();
 
         this.ui.clearForm();
     }
-
-
-
-
-
-
 }

@@ -1,23 +1,20 @@
 package com.example.tubes_makanapahariini.model;
 
-import java.lang.reflect.Array;
-
 public class Food {
-    public String getLocate_restaurant;
+    public int id;
     private String title;
     private String description;
     private String ingredients;
     private String restaurantName;
     private String restaurantLocation;
-    public int id;
 
     public Food(int id, String title, String description, String ingredients, String restaurantLocation, String restaurantName) {
+        this.id = id;
         this.title = title;
         this.description = description;
         this.ingredients = ingredients;
         this.restaurantName = restaurantName;
         this.restaurantLocation = restaurantLocation;
-        this.id = id;
     }
 
     public Food() { }
