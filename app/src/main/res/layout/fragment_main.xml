@@ -28,6 +28,7 @@
         android:textSize="20sp"
         android:background="#327da8"
         android:text="@string/main_search"
+        android:textColor="@android:color/white"
         />
 
 </LinearLayout>

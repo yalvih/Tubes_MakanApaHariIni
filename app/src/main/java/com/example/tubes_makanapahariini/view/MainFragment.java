@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.concurrent.ThreadLocalRandom;
 
 import androidx.fragment.app.Fragment;
@@ -25,6 +27,7 @@ public class MainFragment extends Fragment implements ViewGroup.OnClickListener 
     DBHandler dbHandler;
     FragmentListener fragmentListener;
     MainActivityPresenter mainActivityPresenter;
+    Toast toast;
 
     public MainFragment() { }
 
@@ -49,8 +52,15 @@ public class MainFragment extends Fragment implements ViewGroup.OnClickListener 
     @Override
     public void onClick(View v) {
         if (v == this.search) {
-            this.fragmentListener.changeMenuId(this.mainActivityPresenter.openRandom());
-            this.fragmentListener.changePage(6);
+            boolean isEmpty = this.mainActivityPresenter.checkDBSize() == 0;
+            if (isEmpty == false) {
+                this.fragmentListener.changeMenuId(this.mainActivityPresenter.openRandom());
+                this.fragmentListener.changePage(6);
+            }
+            else {
+                this.toast = Toast.makeText(this.getActivity(),"Tidak ada menu yang terdaftar!",Toast.LENGTH_SHORT);
+                this.toast.show();
+            }
         }
     }
 

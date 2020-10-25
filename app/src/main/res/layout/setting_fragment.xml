@@ -31,7 +31,8 @@
             android:layout_alignParentRight="true"
             android:layout_gravity="right"
             android:background="@color/colorPrimary"
-            android:fontFamily="@font/google_font_normal" />
+            android:fontFamily="@font/google_font_normal"
+            android:textColor="@android:color/white"/>
 
     </LinearLayout>
 
