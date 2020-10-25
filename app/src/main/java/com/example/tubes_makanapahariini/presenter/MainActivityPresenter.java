@@ -14,7 +14,6 @@ public class MainActivityPresenter {
     }
 
     public int openRandom(){
-
         int max = this.dbHandler.getAllRecord().size()-1;
         int randomNum = ThreadLocalRandom.current().nextInt(0, max + 1);
         List<Food> foods = dbHandler.getAllRecord();
