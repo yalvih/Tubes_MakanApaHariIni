@@ -107,32 +107,26 @@ public class DBHandler extends SQLiteOpenHelper {
     // Get search results
     public List<Food> getSearchResults(String query) {
         List<Food> foodList = new ArrayList<Food>();
-        // Select search result query
-        StringBuilder searchQuery;
-        if (!query.equals("")) {
-            searchQuery = new StringBuilder("SELECT * FROM " + TABLE_FOOD);
-            // Split keywords if query contains whitespace
-            String[] keywords = query.split(" ");
-            // Match names
-            searchQuery.append(" WHERE " + KEY_NAME + " LIKE '%");
-            for (int i = 0; i < keywords.length; i++) {
-                if (i == keywords.length - 1) {
-                    searchQuery.append(keywords[i]).append("%");
-                }
-                else searchQuery.append(keywords[i]).append("%' OR ").append(KEY_NAME).append(" LIKE '%");
+        StringBuilder searchQuery = new StringBuilder("SELECT * FROM " + TABLE_FOOD);;
+        // Split keywords if query contains whitespace
+        String[] keywords = query.split(" ");
+        // Match names
+        searchQuery.append(" WHERE " + KEY_NAME + " LIKE '%");
+        for (int i = 0; i < keywords.length; i++) {
+            if (i == keywords.length - 1) {
+                searchQuery.append(keywords[i]).append("%");
             }
-            // Match description
-            searchQuery.append("' OR " + KEY_DESC + " LIKE '%");
-            for (int i = 0; i < keywords.length; i++) {
-                if (i == keywords.length - 1) {
-                    searchQuery.append(keywords[i]).append("%");
-                }
-                else searchQuery.append(keywords[i]).append("%' OR ").append(KEY_DESC).append(" LIKE '%");
-            }
-            searchQuery.append("' ORDER BY " + KEY_ID);
+            else searchQuery.append(keywords[i]).append("%' OR ").append(KEY_NAME).append(" LIKE '%");
         }
-        // Select nothing if search field is left empty
-        else searchQuery = new StringBuilder("SELECT * FROM " + TABLE_FOOD + " WHERE 1 = 0");
+        // Match description
+        searchQuery.append("' OR " + KEY_DESC + " LIKE '%");
+        for (int i = 0; i < keywords.length; i++) {
+            if (i == keywords.length - 1) {
+                searchQuery.append(keywords[i]).append("%");
+            }
+            else searchQuery.append(keywords[i]).append("%' OR ").append(KEY_DESC).append(" LIKE '%");
+        }
+        searchQuery.append("' ORDER BY " + KEY_ID);
 
         Log.d("DBQuery", searchQuery.toString());
         SQLiteDatabase db = this.getWritableDatabase();

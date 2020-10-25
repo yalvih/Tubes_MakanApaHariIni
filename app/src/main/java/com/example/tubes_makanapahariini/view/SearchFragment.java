@@ -40,10 +40,14 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemClickL
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.search_fragment, container, false);
-        this.search = view.findViewById(R.id.search);
-        this.list_view = view.findViewById(R.id.list_foods);
         this.dbHandler = new DBHandler(this.getContext());
         this.searchPresenter = new SearchPresenter(this, this.dbHandler);
+        this.search = view.findViewById(R.id.search);
+        this.list_view = view.findViewById(R.id.list_foods);
+
+        this.searchFragmentAdapter = new SearchFragmentAdapter(this.getActivity());
+        this.list_view.setAdapter(this.searchFragmentAdapter);
+        this.list_view.setOnItemClickListener(this);
 
         this.search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -54,15 +58,11 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemClickL
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                Log.d("SearchChange", "blyat");
                 searchPresenter.loadData(newText);
                 return true;
             }
         });
-
-        this.searchFragmentAdapter = new SearchFragmentAdapter(this.getActivity());
-        this.list_view.setAdapter(this.searchFragmentAdapter);
-        this.list_view.setOnItemClickListener(this);
+        searchPresenter.loadData("");
         return view;
     }
 
